@@ -1,0 +1,47 @@
+@import url("../../medium/css/theme.css");
+
+.home-header {
+	background: rgba(254,254,254,1);
+	background: -moz-linear-gradient(top, rgba(254,254,254,1) 0%, rgba(226,226,226,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(254,254,254,1)), color-stop(100%, rgba(226,226,226,1)));
+	background: -webkit-linear-gradient(top, rgba(254,254,254,1) 0%, rgba(226,226,226,1) 100%);
+	background: -o-linear-gradient(top, rgba(254,254,254,1) 0%, rgba(226,226,226,1) 100%);
+	background: -ms-linear-gradient(top, rgba(254,254,254,1) 0%, rgba(226,226,226,1) 100%);
+	background: linear-gradient(to bottom, rgba(254,254,254,1) 0%, rgba(226,226,226,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#e2e2e2', GradientType=0 );
+    box-shadow: 0;
+    -webkit-box-shadow: 0;
+    height: 75px;
+    padding: 5px 0;
+}
+
+#menu-trigger, #search-trigger {
+    color: #777;
+}
+
+.page-section {
+    padding-top: 0;
+}
+
+.header-logo a {
+	margin-top: 10px;
+	font-size: 20px;
+	text-transform: none;
+	color: #222;
+}
+
+.block-content .block-title {
+	display:none;
+}
+
+body.directory .block-content {
+    margin-top: 20px;
+}
+
+.page-title {
+    background-color: transparent;
+    padding: 15px 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    margin-bottom: 0;
+}
