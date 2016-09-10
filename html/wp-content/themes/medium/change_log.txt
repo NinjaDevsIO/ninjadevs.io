@@ -1,0 +1,47 @@
+Version 1.0
+
+i)   Theme Submitted for approval
+
+Version 1.1 (12-11-2014)
+
+i) Enqueue Scripts and Styles properly.
+ii) set esc_url sanitization in all files.
+iii) Require file set properly
+iv) Remove Theme Text Translation
+v) Remove newsletter code from theme options and remove newsletter script and css from js and css files.
+vi) Images folder is deleted.
+
+Version 1.1.1 (18-11-2014)
+i) Fixed JS and CSS issues.
+
+Version 1.2 (24-11-2014)
+i) Made theme translation-ready !
+ii) Fixed issues pointed out by the reviewer.
+
+
+Version 1.2.1 (29-11-2014)
+i)  Added html5shiv and respond licences
+ii) set text domain in function.php
+iii) set menu and search scrollbar.
+iv) add esc_attr() before image alt attribute.
+v) added two files html5shiv.min and respond.js.
+
+
+Version 1.2.2 (04-12-2014)
+i) Set header image
+ii) Escaped $medium_featured_image in index.php
+iii) Set original version of enscroll.min
+
+Version 1.2.3 (09-12-2014)
+i) Escaped $medium_featured_image in functions.php
+ii) Fixed scroll issue
+iii) Declare copyright and license information
+
+
+Version 1.2.4 (18-12-2014)
+i) all css and js file used minified to normal script.
+ii) remove bootstrap.min.css, bootstrap.min.js, html5shiv.min.js and respond.min.js file.
+iii) rename enscroll.min.js to enscroll.js
+
+Version 1.2.5 (18-12-2014)
+i) enqueue script header set. function.php 
