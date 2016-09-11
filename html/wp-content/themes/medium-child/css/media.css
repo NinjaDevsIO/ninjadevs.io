@@ -35,6 +35,12 @@
 	}
 }
 
+@media screen and (max-width: 768px) {
+	.home-footer {
+	    min-height: 0;
+	}
+}
+
 @media screen and (max-width:568px){
     .block-content .block-title{
        font-size: 18px;

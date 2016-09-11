@@ -45,3 +45,13 @@ body.directory .block-content {
     -webkit-box-shadow: none;
     margin-bottom: 0;
 }
+
+.footer-copyright {
+    color: #fff;
+    font-size: 12px;
+    padding: 20px 0px 20px 0px;
+}
+
+.footer-copyright a {
+    color: #F4D03F;
+}
