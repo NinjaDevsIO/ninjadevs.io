@@ -15,6 +15,14 @@ body {
     font-size: 12px;
 }
 
+.blog-container {
+    width: 900px;
+}
+
+body.home .blog-container {
+    margin-top: 10px;
+}
+
 .block-content .block-text{
 	line-height: 22px;
 	font-size: 14px;
@@ -26,9 +34,13 @@ blockquote {
 }
 
 body.home .page-title,
-body.bp-user .block-details,
+body.buddypress .block-details,
 body.directory .block-details {
     display: none;
+}
+
+body.manage-members #buddypress #message.info {
+    margin-top: 30px;
 }
 
 #buddypress table.forum tr td.label,

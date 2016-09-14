@@ -1,5 +1,18 @@
 @import url("../../medium/css/media.css");
 
+body.directory .block-title,
+body.buddypress .block-title {
+	display:none;
+}
+
+.block-content {
+    padding: 5px 0 40px 0;
+}
+
+body.directory .blog-post {
+    margin-top: 15px;
+}
+
 .block-content .block-text {
     font-size: 12px;
     line-height: 22px;

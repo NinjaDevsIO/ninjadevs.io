@@ -15,6 +15,17 @@
     padding: 5px 0;
 }
 
+.header-menu .menu-column div > ul > li:nth-child(1) a,
+.header-menu .menu-column > ul > li:nth-child(1) a,
+.header-menu .menu-column div > ul > li:nth-child(2) a,
+.header-menu .menu-column > ul > li:nth-child(2) a,
+.header-menu .menu-column div > ul > li:nth-child(3) a,
+.header-menu .menu-column > ul > li:nth-child(3) a,
+.header-menu .menu-column div > ul > li:nth-child(4) a,
+.header-menu .menu-column > ul > li:nth-child(4) a {
+    color: #000;
+}
+
 #menu-trigger, #search-trigger {
     color: #777;
 }
