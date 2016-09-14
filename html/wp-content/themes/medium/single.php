@@ -6,13 +6,13 @@ get_header();
 ?>
 <!--section start-->
 <section class="home-section page-section">
-    <div class="container blog-container">	
+    <div class="container blog-container">
         <div class="blog-post">
             <div class="row blog-row"><?php
 		if (have_posts()) : while (have_posts()) : the_post();
 			$medium_featured_image = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_ID()), 'medium-blog-big');
-			?>	 
-			<div class="col-md-12 single-post">             
+			?>
+			<div class="col-md-12 single-post">
 			    <div  id="post-<?php the_ID(); ?>" <?php post_class('col-md-12'); ?>>
 				<div class="blog-left">
 				    <?php
@@ -22,9 +22,9 @@ get_header();
 				    ?>
 				    <div class="block-content">
 					<h2 class="block-title"><?php echo get_the_title(); ?></h2>
-					<div class="block-details"> 
+					<div class="block-details">
 					    <ul>
-						<?php medium_entry_meta(); ?> 
+						<?php ninjadevsio_medium_entry_meta(); ?>
 					    </ul>
 					</div>
 					<div class="col-md-12 no-padding-lr block-text">
@@ -42,23 +42,23 @@ get_header();
 					?>
 
 
-				    </div>    
+				    </div>
 				</div>
 			    </div>
 			    <?php
 			endwhile;
 		    endif;
 		    ?><div class="col-md-12 medium-pagination-single no-padding-lr">
-			<span class="medium-previous-link"><?php previous_post_link('%link',' &laquo; '.__('Previous', 'medium')); 			
+			<span class="medium-previous-link"><?php previous_post_link('%link',' &laquo; '.__('Previous', 'medium'));
 			?></span>
 			<span class="medium-next-link"><?php next_post_link('%link',__('Next', 'medium') . ' &raquo;');?></span>
 		    </div>
 		    <?php comments_template(); ?>
-		</div>            
+		</div>
             </div>
 
-        </div>    
-    </div>   
+        </div>
+    </div>
 </section>
 <!--secton end-->
 <?php get_footer(); ?>

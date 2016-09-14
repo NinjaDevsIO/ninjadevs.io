@@ -25,7 +25,7 @@ get_header();
                             <h2 class="block-title"><?php echo get_the_title(); ?></h2>
                             <div class="block-details"> 
                                 <ul>
-                                    <?php medium_entry_meta();?> 
+                                    <?php ninjadevsio_medium_entry_meta();?> 
                                 </ul>
                              </div>
                              <div class="col-md-12 no-padding-lr block-text">

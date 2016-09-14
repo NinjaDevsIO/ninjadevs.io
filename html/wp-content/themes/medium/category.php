@@ -1,29 +1,29 @@
-<?php 
+<?php
 /*
  * Category Template File.
  */
-get_header(); 
+get_header();
 ?>
    <!--section start-->
    <section class="home-section page-section">
    	<div class="col-md-12 page-title">
     	<h2><?php printf( __( 'Category : %s', 'medium' ), single_cat_title( '', false ) ); ?></h2>
     </div>
-   	<div class="container blog-container">	
+   	<div class="container blog-container">
         <div class="blog-post" id="content">
             <div class="row blog-row">
              <?php
 			 $medium_i = 1;
-		if( have_posts() ) : while (have_posts()) : the_post(); 
+		if( have_posts() ) : while (have_posts()) : the_post();
 			if($medium_i == 1 || $medium_i == 4){
 				$medium_class = 'col-md-7 col-sm-7 post-box';
 				$medium_featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'medium-blog-big');
 			}
 			else{
 				$medium_class = 'col-md-5 col-sm-5 post-box';
-				$medium_featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'medium-blog-small',0 );				
+				$medium_featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'medium-blog-small',0 );
 			}
-				?>	 
+				?>
                 <div  id="post-<?php the_ID(); ?>" <?php post_class($medium_class); ?>>
                     <div class="blog-left">
                     	<?php
@@ -33,19 +33,19 @@ get_header();
 						?>
                         <div class="block-content">
                             <a href="<?php echo esc_url(get_permalink());?>" class="block-title"><?php echo get_the_title(); ?></a>
-                            <div class="block-details"> 
+                            <div class="block-details">
                                 <ul>
-                                    <?php medium_entry_meta();?> 
+                                    <?php ninjadevsio_medium_entry_meta();?> 
                                 </ul>
                              </div>
                             <a href="<?php echo esc_url(get_permalink());?>" class="read-more"><?php _e('Read More...','medium'); ?></a>
-                        </div>    
+                        </div>
                     </div>
                 </div>
              <?php
 			 	$medium_i++;
 				if($medium_i == 5){
-					$medium_i=1;			
+					$medium_i=1;
 				}
 				endwhile; endif;
 				if (function_exists('faster_pagination')) {
@@ -59,8 +59,8 @@ get_header();
 				}
 		 	?>
             </div>
-        </div>    
-    </div>   
+        </div>
+    </div>
    </section>
    <!--secton end-->
 <?php get_footer(); ?>

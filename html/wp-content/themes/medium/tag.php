@@ -35,7 +35,7 @@ get_header();
                             <a href="<?php echo esc_url(get_permalink());?>" class="block-title"><?php echo get_the_title(); ?></a>
                             <div class="block-details"> 
                                 <ul>
-                                    <?php medium_entry_meta();?> 
+                                    <?php ninjadevsio_medium_entry_meta();?> 
                                 </ul>
                              </div>
                             <a href="<?php echo esc_url(get_permalink());?>" class="read-more"><?php _e('Read More...','medium'); ?></a>

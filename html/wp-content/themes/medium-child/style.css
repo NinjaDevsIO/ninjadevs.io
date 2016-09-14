@@ -25,7 +25,9 @@ blockquote {
     font-size: 12px;
 }
 
-body.buddypress .block-details {
+body.home .page-title,
+body.bp-user .block-details,
+body.directory .block-details {
     display: none;
 }
 
@@ -112,4 +114,8 @@ body.buddypress .block-details {
     border: 1px solid #ccc;
     color: #767676;
     border-radius: 6px;
+}
+
+#buddypress ul.item-list li div.item-desc {
+    display: none;
 }

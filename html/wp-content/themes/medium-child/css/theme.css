@@ -30,10 +30,6 @@
 	color: #222;
 }
 
-.block-content .block-title {
-	display:none;
-}
-
 body.directory .block-content {
     margin-top: 20px;
 }

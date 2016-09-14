@@ -1,18 +1,18 @@
 <?php
 
-add_filter( 'show_admin_bar', '__return_true' );
+add_filter('show_admin_bar', '__return_true');
 
 function ninjadevsio_theme_enqueue_styles() {
-    $parent_style = 'parent-style';
+	$parent_style = 'parent-style';
 
-    wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
+	wp_enqueue_style($parent_style, get_template_directory_uri() . '/style.css');
 
 	wp_enqueue_style(
 		'child-style',
-        get_stylesheet_directory_uri() . '/style.css',
-        array($parent_style),
-        wp_get_theme()->get('Version')
-    );
+		get_stylesheet_directory_uri() . '/style.css',
+		array($parent_style),
+		wp_get_theme()->get('Version')
+	);
 }
 
 add_action('wp_enqueue_scripts', 'ninjadevsio_theme_enqueue_styles', 999);
@@ -39,9 +39,9 @@ function ninjadevsio_remove_admin_bar_links() {
 
 add_action('wp_before_admin_bar_render', 'ninjadevsio_remove_admin_bar_links', 999);
 
-function ninjadevsio_replace_howdy( $wp_admin_bar ) {
+function ninjadevsio_replace_howdy( $wp_admin_bar) {
 	$my_account=$wp_admin_bar->get_node('my-account');
-	$newtitle = str_replace( 'Howdy,', '', $my_account->title );
+	$newtitle = str_replace( 'Howdy,', '', $my_account->title);
 	$wp_admin_bar->add_node([
 		'id' => 'my-account',
 		'title' => $newtitle
@@ -51,7 +51,7 @@ function ninjadevsio_replace_howdy( $wp_admin_bar ) {
 add_filter('admin_bar_menu', 'ninjadevsio_replace_howdy', 999);
 
 
-function ninjadevsio_add_login_link( $meta = FALSE ) {
+function ninjadevsio_add_login_link($meta = FALSE) {
 	global $wp_admin_bar, $blog_id;
 
 	$args = array(
@@ -132,3 +132,48 @@ function ninjadevsio_add_login_link( $meta = FALSE ) {
 }
 
 add_action( 'admin_bar_menu', 'ninjadevsio_add_login_link', 9999);
+
+/*
+ * medium Set up post entry meta.
+ *
+ * Meta information for current post: categories, tags, permalink, author, and date.
+ */
+ function ninjadevsio_medium_entry_meta() {
+ 	$medium_category_list = "";
+ 	$medium_category_list=get_the_category_list();
+
+     if (!empty($medium_category_list))
+ 	   $medium_category_list = _e('Posted in','medium'); echo " ".get_the_category_list(', ');
+
+    $medium_tag_list = "";
+    $medium_tag_list=get_the_tag_list();
+
+    if (!empty($medium_tag_list))
+       $medium_tag_list = _e(' Tags','medium'); echo " ".get_the_tag_list('',', ');
+
+ 	$medium_date = sprintf( '<li>'.__('On','medium').' %1$s</li>',
+ 		esc_html( get_the_date('M d, Y') )
+ 	);
+
+ 	$medium_author = sprintf( '<li>'.__('By','medium').' <a href="%1$s" title="%2$s" >%3$s</a></li>',
+ 		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+ 		esc_attr( sprintf( __( 'View all posts by %s', 'medium' ), get_the_author() ) ),
+ 		get_the_author()
+ 	);
+
+ 	if (comments_open()) {
+ 		if (get_comments_number()>=1)
+ 			$medium_comments = '<li>'.__('Comments','medium').' '.get_comments_number().'</li>';
+ 		else
+ 			$medium_comments = '';
+ 	} else {
+ 		$medium_comments = '';
+ 	}
+
+ 	printf('%1$s %2$s %3$s %4$s',
+ 		$medium_category_list,
+ 		$medium_date,
+ 		$medium_comments,
+ 		$medium_tag_list
+ 	);
+ }
