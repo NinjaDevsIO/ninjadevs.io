@@ -76,3 +76,11 @@ define('DB_USER', 'wordpress');
 define('DB_PASSWORD', 'wordpress');
 define('DB_HOST', 'db:3306');
 ```
+
+### Prepare the remote database export for local import development
+
+```
+perl -p -i -e 's/(www\.)?ninjadevs.io/0.0.0.0/g' data_ninjadevs_io.sql
+perl -p -i -e 's/data.0.0.0.0/0.0.0.0/g' data_ninjadevs_io.sql
+perl -p -i -e 's/{REMOTE_DATABASE_NAME}/wordpress/g' data_ninjadevs_io.sql
+```
