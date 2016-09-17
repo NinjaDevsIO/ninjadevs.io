@@ -15,12 +15,16 @@ body {
     font-size: 12px;
 }
 
+.menu-column {
+    margin-top: 30px;
+}
+
 .blog-container {
-    width: 900px;
+    max-width: 900px;
 }
 
 body.home .blog-container {
-    margin-top: 10px;
+    /* margin-top: 30px; */
 }
 
 .block-content .block-text{
@@ -130,4 +134,14 @@ body.manage-members #buddypress #message.info {
 
 #buddypress ul.item-list li div.item-desc {
     display: none;
+}
+
+.medium-comments .comment-form-author label,
+.medium-comments .comment-form-email label,
+.medium-comments .comment-form-url label,
+.medium-comments .comment-form-comment label,
+.medium-comments .comment-notes,
+.form-allowed-tags {
+    display: block;
+    visibility: visible;
 }

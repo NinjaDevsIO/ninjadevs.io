@@ -30,8 +30,8 @@
     color: #777;
 }
 
-.page-section {
-    padding-top: 0;
+body.single-post .page-section {
+    padding-top: 30px;
 }
 
 .header-logo a {
