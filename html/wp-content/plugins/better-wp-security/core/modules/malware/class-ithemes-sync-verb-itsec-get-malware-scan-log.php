@@ -1,0 +1,36 @@
+<?php
+
+class Ithemes_Sync_Verb_ITSEC_Get_Malware_Scan_Log extends Ithemes_Sync_Verb {
+	public static $name = 'itsec-get-malware-scan-log';
+	public static $description = '';
+	
+	public $default_arguments = array(
+		'count' => 10,
+	);
+	
+	public function run( $arguments ) {
+		$arguments = Ithemes_Sync_Functions::merge_defaults( $arguments, $this->default_arguments );
+		
+		global $itsec_logger;
+		
+		$items = $itsec_logger->get_events( 'malware' );
+		$response = array();
+		
+		foreach ( $items as $item ) {
+			$item['log_data'] = maybe_unserialize( $item['log_data'] );
+			
+			if ( ! isset( $item['log_data']['SCAN']['SITE'] ) ) {
+				// Don't return old scan data.
+				continue;
+			}
+			
+			$response[] = $item;
+			
+			if ( ( $arguments['count'] > 0 ) && ( count( $response ) == $arguments['count'] ) ) {
+				break;
+			}
+		}
+		
+		return $response;
+	}
+}
