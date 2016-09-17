@@ -14,6 +14,12 @@
 
   - http://0.0.0.0:800
 
+```
+Server:     db
+Username:   wordpress
+Password:   wordpress
+```
+
 ## Local Environment
 
 This actions and credentials are only valid for Our `Local Environment`.
