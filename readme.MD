@@ -67,3 +67,12 @@ mysqldump -u wordpress -pwordpress wordpress > /var/lib/mysql/wordpress_`date +%
 ```
 ls -la ~/Sites/ninjadevs.io/mysql
 ```
+
+## atom wp-config.php
+
+```
+define('DB_NAME', 'wordpress');
+define('DB_USER', 'wordpress');
+define('DB_PASSWORD', 'wordpress');
+define('DB_HOST', 'db:3306');
+```
