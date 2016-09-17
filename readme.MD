@@ -2,6 +2,14 @@
 
  - https://docs.docker.com/compose/wordpress
 
+ ```
+ docker-compose up -d
+ ```
+
+  - http://0.0.0.0/
+  
+  - http://0.0.0.0:800/
+
 ## Local Environment
 
 This actions and credentials are only valid for your `Local Environment`.
