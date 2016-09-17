@@ -28,7 +28,7 @@ services:
     image: wordpress:latest
     working_dir: /var/www/html
     volumes:
-     - ./html:/var/www/html
+     - ./ninjadevs.io:/var/www/html
     links:
       - db
     ports:
