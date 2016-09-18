@@ -4,8 +4,7 @@ add_filter('show_admin_bar', '__return_true');
 
 /* -------------------------------------------------------------------------- */
 
-function ninjadevsio_theme_enqueue_styles()
-{
+function ninjadevsio_theme_enqueue_styles() {
     $parent_style = 'parent-style';
 
     wp_enqueue_style($parent_style, get_template_directory_uri().'/style.css');
@@ -22,8 +21,7 @@ add_action('wp_enqueue_scripts', 'ninjadevsio_theme_enqueue_styles', 9999);
 
 /* -------------------------------------------------------------------------- */
 
-function ninjadevsio_remove_admin_bar_links()
-{
+function ninjadevsio_remove_admin_bar_links() {
     global $wp_admin_bar;
 
     //Remove WordPress Logo Menu Items
@@ -47,8 +45,7 @@ add_action('wp_before_admin_bar_render', 'ninjadevsio_remove_admin_bar_links', 9
 
 /* -------------------------------------------------------------------------- */
 
-function ninjadevsio_replace_howdy($wp_admin_bar)
-{
+function ninjadevsio_replace_howdy($wp_admin_bar) {
     $my_account = $wp_admin_bar->get_node('my-account');
     $newtitle = str_replace('Howdy,', '', $my_account->title);
     $wp_admin_bar->add_node([
@@ -61,8 +58,7 @@ add_filter('admin_bar_menu', 'ninjadevsio_replace_howdy', 9999);
 
 /* -------------------------------------------------------------------------- */
 
-function ninjadevsio_add_login_link($meta = false)
-{
+function ninjadevsio_add_login_link($meta = false) {
     global $wp_admin_bar, $blog_id;
 
     $args = array(
@@ -146,8 +142,7 @@ add_action('admin_bar_menu', 'ninjadevsio_add_login_link', 99999);
 
 /* -------------------------------------------------------------------------- */
 
-function ninjadevsio_medium_entry_meta()
-{
+function ninjadevsio_medium_entry_meta() {
     $medium_category_list = '';
     $medium_category_list = get_the_category_list();
 
