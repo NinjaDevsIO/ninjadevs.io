@@ -5,7 +5,7 @@ Plugin Name: ninjadevs.io
 Plugin URI: http://www.ninjadevs.io
 Description:  ninjadevs.io plugin
 Author: ninjadevs.io
-Version: 3.0
+Version: 1.0
 Author URI: http://www.ninjadevs.io
 */
 
