@@ -11,7 +11,7 @@ Author URI: http://www.ninjadevs.io
 
 /* -------------------------------------------------------------------------- */
 
-define('NINJADEVSIO_VERSION', '3.0');
+define('NINJADEVSIO_VERSION', '1.0');
 define('NINJADEVSIO_PATHABS', dirname(__FILE__));
 define('NINJADEVSIO_PATHREL', plugins_url() . '/' . basename(NINJADEVSIO_PATHABS));
 
@@ -32,7 +32,7 @@ add_filter( 'update_footer', 'ninjadevsio_footer_version', 9999);
 /* -------------------------------------------------------------------------- */
 
 function ninjadevsio_remove_footer_text() {
-  echo '';
+    echo '';
 }
 
 add_filter('admin_footer_text', 'ninjadevsio_remove_footer_text');
@@ -40,39 +40,39 @@ add_filter('admin_footer_text', 'ninjadevsio_remove_footer_text');
 /* -------------------------------------------------------------------------- */
 
 function ninjadevsio_bp_per_page($query = '', $object = '') {
-	if ($object == 'groups' || $object == 'members') {
-		$query .= '&per_page=80';
-	}
+    if ($object == 'groups' || $object == 'members') {
+        $query .= '&per_page=80';
+    }
 
-  return $query;
+    return $query;
 }
 
-add_filter('bp_ajax_querystring', 'ninjadevsio_bp_per_page', 999, 2);
+add_filter('bp_ajax_querystring', 'ninjadevsio_bp_per_page', 9999, 2);
 
 /* -------------------------------------------------------------------------- */
 
 function ninjadevsio_bp_exclude_users($qs=false, $object=false) {
-	$excluded_user = '1';
+    $excluded_user = '1';
 
-	if( $object != 'members' )
-		return $qs;
+    if( $object != 'members' )
+    return $qs;
 
-	$args = wp_parse_args($qs);
+    $args = wp_parse_args($qs);
 
-	if( !empty($args['user_id']) || !empty($args['search_terms']) )
-		return $qs;
+    if( !empty($args['user_id']) || !empty($args['search_terms']) )
+    return $qs;
 
-	if ( !empty($args['exclude']) )
-		$args['exclude'] = $args['exclude'] . ',' . $excluded_user;
-	else
-		$args['exclude'] = $excluded_user;
+    if ( !empty($args['exclude']) )
+    $args['exclude'] = $args['exclude'] . ',' . $excluded_user;
+    else
+    $args['exclude'] = $excluded_user;
 
-	$qs = build_query($args);
+    $qs = build_query($args);
 
-	return $qs;
+    return $qs;
 }
 
-add_action('bp_ajax_querystring', 'ninjadevsio_bp_exclude_users', 999, 2);
+add_action('bp_ajax_querystring', 'ninjadevsio_bp_exclude_users', 9999, 2);
 
 /* -------------------------------------------------------------------------- */
 
