@@ -53,6 +53,11 @@ body.directory .block-content {
     margin-bottom: 0;
 }
 
+.block-content .block-title {
+    font-size: 18px;
+    line-height: 28px
+}
+
 .footer-copyright {
     color: #fff;
     font-size: 12px;

@@ -166,6 +166,10 @@ body.manage-members #buddypress #message.info {
     padding-left: 6px;
 }
 
+.block-details {
+    margin-top: 0;
+}
+
 .block-details ul li a {
     font-size: 12px;
 }
