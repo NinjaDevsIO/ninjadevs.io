@@ -1,0 +1,12 @@
+
+.mcecode-option label{
+  float: left;
+  width: 9rem;
+  margin-top: 0.2rem;
+}
+
+@media(max-width:782px){
+  .mcecode-option label{
+    margin-top: 0.4rem;
+  }
+}
