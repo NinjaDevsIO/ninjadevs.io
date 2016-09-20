@@ -1,6 +1,18 @@
 BACKUPS
 mysql
 
+.alias
+.bash_history
+.bash_profile
+.bashrc
+.cache/
+.cshrc
+.ssh/
+.viminfo
+Maildir/
+logs/
+ninjadevs.io_BACKUP/
+
 *.DS_Store
 .AppleDouble
 .LSOverride
