@@ -143,48 +143,64 @@ add_action('admin_bar_menu', 'ninjadevsio_add_login_link', 99999);
 /* -------------------------------------------------------------------------- */
 
 function ninjadevsio_medium_entry_meta() {
-    $medium_category_list = '';
-    $medium_category_list = get_the_category_list();
+    $user_id = get_the_author_meta('ID');
+    $user_posts = get_author_posts_url($user_id);
 
-    if (!empty($medium_category_list)) {
-        $medium_category_list = _e('Posted in', 'medium');
-    }
-    echo ' '.get_the_category_list(', ');
-
-    $medium_tag_list = '';
-    $medium_tag_list = get_the_tag_list();
-
-    if (!empty($medium_tag_list)) {
-        $medium_tag_list = _e(' Tags', 'medium');
-    }
-    echo ' '.get_the_tag_list('', ', ');
-
-    $medium_date = sprintf('<li>'.__('On', 'medium').' %1$s</li>',
-        esc_html(get_the_date('M d, Y'))
+    $thumbnail = bp_core_fetch_avatar(
+        array(
+            'item_id' => $user_id,
+            'type'    => 'thumb',
+            'html'    => TRUE
+        )
     );
 
-    $medium_author = sprintf('<li>'.__('By', 'medium').' <a href="%1$s" title="%2$s" >%3$s</a></li>',
-        esc_url(get_author_posts_url(get_the_author_meta('ID'))),
-        esc_attr(sprintf(__('View all posts by %s', 'medium'), get_the_author())),
-        get_the_author()
-    );
+    $avatar = '<a href="' . $user_posts . '">' . $thumbnail . '</a>';
+
+    $category_list = '';
+    $category_list = get_the_category_list();
+
+    if (!empty($category_list)) {
+        $categories = '<div class="post-user-meta-row">' . __('Posted in: ', 'medium') . get_the_category_list(', ') . '</div>';
+    }
+
+    $tag_list = '';
+    $tag_list = get_the_tag_list();
+
+    if (!empty($tag_list)) {
+        $tags = '<div class="post-user-meta-row">' . __('Tags: ', 'medium') . get_the_tag_list('', ', ') . '</div>';
+    }
+
+    $by = '<a href="' . $user_posts . '">' . get_the_author() . '</a>';
+
+    $date = '<div class="post-user-meta-row">' . sprintf(
+        __('On ', 'medium') .
+        ' %1$s', esc_html(get_the_date('M d, Y')) .
+        __(' by ', 'medium') . $by
+    ) . '</div>';
+
+    $coments = '';
 
     if (comments_open()) {
         if (get_comments_number() >= 1) {
-            $medium_comments = '<li>'.__('Comments', 'medium').' '.get_comments_number().'</li>';
-        } else {
-            $medium_comments = '';
+            $coments = '<div class="post-user-meta-row">' . __('Comments: ', 'medium') . ' ' . get_comments_number() . '</div>';
         }
-    } else {
-        $medium_comments = '';
     }
 
-    printf('%1$s %2$s %3$s %4$s',
-        $medium_category_list,
-        $medium_date,
-        $medium_comments,
-        $medium_tag_list
-    );
+$template = <<<HEREDOC
+    <div class="post-user">
+        <div class="post-user-avatar">
+            $avatar
+        </div>
+
+    	<div class="post-user-meta">
+            $categories
+            $tags
+            $date
+    	</div>
+    </div>
+HEREDOC;
+
+    echo $template;
 }
 
 /* -------------------------------------------------------------------------- */

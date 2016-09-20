@@ -145,3 +145,31 @@ body.manage-members #buddypress #message.info {
     display: block;
     visibility: visible;
 }
+
+.post-user {
+    clear: both;
+}
+
+.post-user-avatar {
+    float: left;
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #767676;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+.post-user-meta {
+    float: left;
+    padding-top: 6px;
+    padding-left: 6px;
+}
+
+.read-more {
+    width: 100%;
+}
+
+.post-user-meta-row {
+    float: left;
+    clear: both;
+}
