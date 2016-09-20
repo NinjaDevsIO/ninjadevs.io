@@ -76,4 +76,31 @@ add_action('bp_ajax_querystring', 'ninjadevsio_bp_exclude_users', 9999, 2);
 
 /* -------------------------------------------------------------------------- */
 
+function custom_change_labels($translated) {
+    $translated = str_replace('All Members', 'Clan', $translated);
+    $translated = str_replace('Cancel Frienship Request', 'Cancel Follow Request', $translated);
+    $translated = str_replace('Cancel Frienship', 'Unfollow', $translated);
+    $translated = str_replace('Add Friend', 'Follow', $translated);
+    $translated = str_replace('Search Members', 'Search Clan', $translated);
+
+    $translated = str_replace('Groups', 'Clans', $translated);
+    $translated = str_replace('All Groups', 'All Clans', $translated);
+    $translated = str_replace('My Groups', 'My Clans', $translated);
+    $translated = str_replace('Create a Group', 'Create a Clan', $translated);
+    $translated = str_replace('Search Groups', 'Search All Clans', $translated);
+
+    $translated = str_replace('Friendships', 'Clan', $translated);
+    $translated = str_replace('Friends', 'My Clan', $translated);
+
+    $translated = str_replace('Favorite', '♥', $translated);
+
+    return $translated;
+
+}
+
+add_filter('gettext', 'custom_change_labels');
+add_filter('ngettext', 'custom_change_labels');
+
+/* -------------------------------------------------------------------------- */
+
 ?>
