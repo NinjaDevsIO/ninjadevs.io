@@ -12,6 +12,7 @@ mysql
 Maildir/
 logs/
 ninjadevs.io_BACKUP/
+.gitconfig
 
 *.DS_Store
 .AppleDouble
