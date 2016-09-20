@@ -187,17 +187,19 @@ function ninjadevsio_medium_entry_meta() {
     }
 
 $template = <<<HEREDOC
-    <div class="post-user">
-        <div class="post-user-avatar">
-            $avatar
-        </div>
+    <li>
+        <div class="post-user">
+            <div class="post-user-avatar">
+                $avatar
+            </div>
 
-    	<div class="post-user-meta">
-            $categories
-            $tags
-            $date
-    	</div>
-    </div>
+        	<div class="post-user-meta">
+                $categories
+                $tags
+                $date
+        	</div>
+        </div>
+    </li>
 HEREDOC;
 
     echo $template;

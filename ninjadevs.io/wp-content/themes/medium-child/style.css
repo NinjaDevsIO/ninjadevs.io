@@ -147,7 +147,8 @@ body.manage-members #buddypress #message.info {
 }
 
 .post-user {
-    clear: both;
+    width: 100%;
+    min-height: 35px;
 }
 
 .post-user-avatar {
@@ -163,6 +164,10 @@ body.manage-members #buddypress #message.info {
     float: left;
     padding-top: 6px;
     padding-left: 6px;
+}
+
+.block-details ul li a {
+    font-size: 12px;
 }
 
 .read-more {
