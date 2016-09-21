@@ -76,4 +76,22 @@ add_action('bp_ajax_querystring', 'ninjadevsio_bp_exclude_users', 9999, 2);
 
 /* -------------------------------------------------------------------------- */
 
+function ninjadevsio_add_thumb_column($cols) {
+    $cols['ninjadevsio_post_thumb'] = __('Featured Image');
+    return $cols;
+}
+
+function ninjadevsio_view_thumb_column($col, $id) {
+    if (function_exists('the_post_thumbnail'))
+        echo the_post_thumbnail( 'thumb' );
+}
+
+add_filter('manage_posts_columns', 'ninjadevsio_add_thumb_column', 999);
+add_filter('manage_pages_columns', 'ninjadevsio_add_thumb_column', 999);
+
+add_action('manage_posts_custom_column', 'ninjadevsio_view_thumb_column', 999, 2);
+add_action('manage_pages_custom_column', 'ninjadevsio_view_thumb_column', 999, 2);
+
+/* -------------------------------------------------------------------------- */
+
 ?>
