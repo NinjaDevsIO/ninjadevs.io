@@ -124,14 +124,6 @@ body.manage-members #buddypress #message.info {
     background-color: #000;
 }
 
-
-#buddypress .comment-reply-link, #buddypress .generic-button a, #buddypress a.button, #buddypress button, #buddypress input[type=button], #buddypress input[type=reset], #buddypress input[type=submit], #buddypress ul.button-nav li a, a.bp-title-button {
-    background: #fff;
-    border: 1px solid #ccc;
-    color: #767676;
-    border-radius: 6px;
-}
-
 #buddypress ul.item-list li div.item-desc {
     display: none;
 }
@@ -185,4 +177,12 @@ body.manage-members #buddypress #message.info {
 
 .medium-comments .comment-list .EnlighterJS li {
     margin: 0;
+}
+
+body.buddypress .activity-meta a.button {
+    background: #fff;
+    border: 1px solid #ccc;
+    color: #767676;
+    border-radius: 6px;
+    float: left;
 }

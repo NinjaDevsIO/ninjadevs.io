@@ -94,4 +94,91 @@ add_action('manage_pages_custom_column', 'ninjadevsio_view_thumb_column', 999, 2
 
 /* -------------------------------------------------------------------------- */
 
+function ninjadevsio_hide_color_scheme() {
+    global $_wp_admin_css_colors;
+    $_wp_admin_css_colors = 0;
+}
+
+add_action('admin_head', 'ninjadevsio_hide_color_scheme', 999);
+
+/* -------------------------------------------------------------------------- */
+
+
+function change_bar_color() {
+    ?>
+    <style>
+
+        #wpbody {
+            margin-top: 22px;
+        }
+        
+        #wpadminbar {
+            background: #007acc !important;
+            height: 55px;
+        }
+
+        #wpadminbar #wp-admin-bar-root-default,
+        #wpadminbar #wp-admin-bar-root-secondary {
+            margin: 11px 10px;
+        }
+
+        @media screen and (max-width: 782px) {
+            html #wpadminbar {
+                height: 55px;
+                min-width: 300px;
+            }
+
+            #wpadminbar #wp-admin-bar-root-default,
+            #wpadminbar #wp-admin-bar-root-secondary {
+                margin: 4px;
+                margin-right: 10px;
+            }
+        }
+
+        #wpadminbar .ab-top-menu>li.hover>.ab-item,
+        #wpadminbar.nojq .quicklinks .ab-top-menu>li>.ab-item:focus,
+        #wpadminbar:not(.mobile) .ab-top-menu>li:hover>.ab-item,
+        #wpadminbar:not(.mobile) .ab-top-menu>li>.ab-item:focus {
+            border-radius: 4px;
+            background: #0070bb;
+            color: #fff;
+        }
+
+        #wpadminbar:not(.mobile)>#wp-toolbar a:focus span.ab-label,
+        #wpadminbar:not(.mobile)>#wp-toolbar li:hover span.ab-label,
+        #wpadminbar>#wp-toolbar li.hover span.ab-label {
+            color: #fff;
+        }
+
+        #wpadminbar .menupop .ab-sub-wrapper,
+        #wpadminbar .shortlink-input {
+        	color: #fff;
+        	-webkit-box-shadow: none;
+        	box-shadow: none;
+        	background: #007acc;
+        }
+
+        #wpadminbar .ab-submenu .ab-item {
+        	color: #fff;
+        }
+
+        #wpadminbar .quicklinks .menupop ul.ab-sub-secondary,
+        #wpadminbar .quicklinks .menupop ul.ab-sub-secondary .ab-submenu {
+            background: #007acc;
+            color: #fff;
+        }
+
+        ul.ab-submenu a.ab-item:hover {
+            color: #fff !important;
+        }
+
+    </style>
+    <?php
+}
+
+add_action('wp_head', 'change_bar_color');
+add_action('admin_head', 'change_bar_color');
+
+/* -------------------------------------------------------------------------- */
+
 ?>
