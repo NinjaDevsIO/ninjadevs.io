@@ -192,3 +192,7 @@ li.filter label,
 li#activity-filter-select label {
     display:none;
 }
+
+.dir-search br {
+  display: none;
+}
