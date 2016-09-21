@@ -186,3 +186,9 @@ body.buddypress .activity-meta a.button {
     border-radius: 6px;
     float: left;
 }
+
+li.filter p:first-of-type,
+li.filter label,
+li#activity-filter-select label {
+    display:none;
+}
