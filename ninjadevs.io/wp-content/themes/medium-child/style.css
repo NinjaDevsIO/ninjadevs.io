@@ -181,9 +181,7 @@ body.manage-members #buddypress #message.info {
 
 body.buddypress .activity-meta a.button {
     background: #fff;
-    border: 1px solid #ccc;
     color: #767676;
-    border-radius: 6px;
     float: left;
 }
 
@@ -195,4 +193,16 @@ li#activity-filter-select label {
 
 .dir-search br {
   display: none;
+}
+
+#buddypress .comment-reply-link,
+#buddypress .generic-button a,
+#buddypress a.button, #buddypress button,
+#buddypress input[type=button],
+#buddypress input[type=reset],
+#buddypress input[type=submit],
+#buddypress ul.button-nav li a, a.bp-title-button {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 }
