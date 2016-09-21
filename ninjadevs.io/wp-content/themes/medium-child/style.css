@@ -206,3 +206,23 @@ li#activity-filter-select label {
     border: 1px solid #ccc;
     border-radius: 6px;
 }
+
+#buddypress .activity-list li.load-more,
+#buddypress .activity-list li.load-newest {
+    background: none;
+    border:none;
+}
+
+#buddypress li.load-more a,
+#buddypress li.load-newest a {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+#buddypress li.load-more a:hover,
+#buddypress li.load-newest a:hover {
+  background: #000;
+  border: 1px solid #000;
+  color: #F4D03F;
+}
