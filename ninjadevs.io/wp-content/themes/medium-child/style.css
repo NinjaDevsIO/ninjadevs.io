@@ -182,3 +182,7 @@ body.manage-members #buddypress #message.info {
     float: left;
     clear: both;
 }
+
+.medium-comments .comment-list .EnlighterJS li {
+    margin: 0;
+}
