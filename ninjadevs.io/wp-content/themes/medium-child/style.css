@@ -230,3 +230,11 @@ li#activity-filter-select label {
 .syntaxhighlighter table td.code .container {
     padding: 15px !important;
 }
+
+a {
+  color: #007acc;
+}
+
+a:hover {
+  color: #de1490;
+}
