@@ -226,3 +226,7 @@ li#activity-filter-select label {
   border: 1px solid #000;
   color: #F4D03F;
 }
+
+.syntaxhighlighter table td.code .container {
+    padding: 15px !important;
+}
