@@ -25,20 +25,22 @@ function ninjadevsio_remove_admin_bar_links() {
     global $wp_admin_bar;
 
     //Remove WordPress Logo Menu Items
-    $wp_admin_bar->remove_menu('wp-logo'); // Removes WP Logo and submenus completely, to remove individual items, use the below mentioned codes
-    $wp_admin_bar->remove_menu('about'); // 'About WordPress'
-    $wp_admin_bar->remove_menu('wporg'); // 'WordPress.org'
-    $wp_admin_bar->remove_menu('documentation'); // 'Documentation'
-    $wp_admin_bar->remove_menu('support-forums'); // 'Support Forums'
-    $wp_admin_bar->remove_menu('feedback'); // 'Feedback'
-
+    $wp_admin_bar->remove_menu('wp-logo');
     //Remove Site Name Items
-    $wp_admin_bar->remove_menu('site-name'); // Removes Site Name and submenus completely, To remove individual items, use the below mentioned codes
-    $wp_admin_bar->remove_menu('view-site'); // 'Visit Site'
-    $wp_admin_bar->remove_menu('dashboard'); // 'Dashboard'
-    $wp_admin_bar->remove_menu('themes'); // 'Themes'
-    $wp_admin_bar->remove_menu('widgets'); // 'Widgets'
-    $wp_admin_bar->remove_menu('menus'); // 'Menus'
+    $wp_admin_bar->remove_menu('site-name');
+    $wp_admin_bar->remove_menu('customize');
+
+    if (!is_user_logged_in()) {
+        $wp_admin_bar->remove_menu('my-account');
+    }
+
+    // $wp_admin_bar->remove_menu('itsec_admin_bar_menu');
+
+    // $wp_admin_bar->remove_menu('view-site');
+    // $wp_admin_bar->remove_menu('dashboard');
+    // $wp_admin_bar->remove_menu('themes');
+    // $wp_admin_bar->remove_menu('widgets');
+    // $wp_admin_bar->remove_menu('menus');
 }
 
 add_action('wp_before_admin_bar_render', 'ninjadevsio_remove_admin_bar_links', 9999);
@@ -63,7 +65,7 @@ function ninjadevsio_add_login_link($meta = false) {
 
     $args = array(
         'id' => 'bp-home',
-        'title' => 'ninjadevs.io',
+        'title' => '<img src="/logo-40x40.png" alt="Home">',
         'href' => '/',
         'meta' => array(
             'class' => 'bp-home',
@@ -73,37 +75,9 @@ function ninjadevsio_add_login_link($meta = false) {
 
     $wp_admin_bar->add_node($args);
 
-    if (!is_user_logged_in()) {
-        $args = array(
-            'id' => 'bp-login',
-            'title' => 'Login',
-            'href' => '/fadein',
-            'meta' => array(
-                'class' => 'bp-login',
-                'title' => 'Login',
-            ),
-        );
-
-        $wp_admin_bar->add_node($args);
-
-        $args = array(
-            'id' => 'bp-register',
-            'title' => 'Join',
-            'href' => '/join',
-            'meta' => array(
-                'class' => 'bp-register',
-                'title' => 'Join',
-            ),
-        );
-    }
-
-    $wp_admin_bar->add_node($args);
-
-    $wp_admin_bar->add_node($args);
-
     $args = array(
         'id' => 'bp-clan',
-        'title' => 'Clan',
+        'title' => '<img src="/menu-clan.png" alt="Clan">',
         'href' => '/clan',
         'meta' => array(
             'class' => 'bp-clan',
@@ -115,8 +89,8 @@ function ninjadevsio_add_login_link($meta = false) {
 
     $args = array(
         'id' => 'bp-clans',
-        'title' => 'Clans',
-        'href' => '/clans',
+        'title' => '<img src="/menu-clans.png" alt="Clans">',
+        'href' => '/clan',
         'meta' => array(
             'class' => 'bp-clans',
             'title' => 'Clans',
@@ -127,7 +101,7 @@ function ninjadevsio_add_login_link($meta = false) {
 
     $args = array(
         'id' => 'bp-wall',
-        'title' => 'Wall',
+        'title' => '<img src="/menu-wall.png" alt="Wall">',
         'href' => '/wall',
         'meta' => array(
             'class' => 'bp-wall',
