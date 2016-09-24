@@ -42,3 +42,15 @@ body.directory .block-content {
 .footer-copyright a {
     color: #F4D03F;
 }
+
+.block-details ul li a {
+	color: #007acc;
+}
+
+.block-details ul li a:hover {
+	  color: #de1490;
+}
+
+.single-post a {
+    font-weight: bold;
+}
