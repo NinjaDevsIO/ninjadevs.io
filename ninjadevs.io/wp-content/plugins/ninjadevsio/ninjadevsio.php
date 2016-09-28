@@ -111,7 +111,7 @@ function change_bar_color() {
         #wpbody {
             margin-top: 22px;
         }
-        
+
         #wpadminbar {
             background: #007acc !important;
             height: 55px;
@@ -122,17 +122,9 @@ function change_bar_color() {
             margin: 11px 10px;
         }
 
-        @media screen and (max-width: 782px) {
-            html #wpadminbar {
-                height: 55px;
-                min-width: 300px;
-            }
-
-            #wpadminbar #wp-admin-bar-root-default,
-            #wpadminbar #wp-admin-bar-root-secondary {
-                margin: 4px;
-                margin-right: 10px;
-            }
+        #wpadminbar ul#wp-admin-bar-root-default>li,
+        .network-admin #wpadminbar ul#wp-admin-bar-top-secondary>li#wp-admin-bar-my-account {
+            margin-right: 10px;
         }
 
         #wpadminbar .ab-top-menu>li.hover>.ab-item,
@@ -170,6 +162,45 @@ function change_bar_color() {
 
         ul.ab-submenu a.ab-item:hover {
             color: #fff !important;
+        }
+
+        @media screen and (max-width: 782px) {
+            html #wpadminbar {
+                height: 55px;
+                min-width: 300px;
+            }
+
+            #wpadminbar, #wpadminbar * {
+                font-size: 13px;
+                font-weight: 400;
+                line-height: 32px;
+            }
+
+            #wpadminbar #wp-admin-bar-root-default,
+            #wpadminbar #wp-admin-bar-root-secondary {
+                margin: 4px;
+                margin-right: 10px;
+            }
+
+            #wp-toolbar>ul>li,
+            #wpadminbar #wp-admin-bar-user-actions.ab-submenu img.avatar {
+                display: block;
+                display: initial;
+            }
+
+            #wpadminbar ul#wp-admin-bar-root-default>li,
+            .network-admin #wpadminbar ul#wp-admin-bar-top-secondary>li#wp-admin-bar-my-account {
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+
+            #wpadminbar .ab-top-menu>li.hover>.ab-item,
+            #wpadminbar.nojq .quicklinks .ab-top-menu>li>.ab-item:focus,
+            #wpadminbar:not(.mobile) .ab-top-menu>li:hover>.ab-item,
+            #wpadminbar:not(.mobile) .ab-top-menu>li>.ab-item:focus {
+                border: none;
+                background: transparent;
+            }
         }
 
     </style>

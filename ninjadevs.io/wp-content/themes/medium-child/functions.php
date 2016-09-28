@@ -65,11 +65,11 @@ function ninjadevsio_add_login_link($meta = false) {
 
     $args = array(
         'id' => 'bp-home',
-        'title' => '<img src="/logo-40x40.png" alt="Home">',
+        'title' => 'NinjaDevs',
         'href' => '/',
         'meta' => array(
             'class' => 'bp-home',
-            'title' => 'Home',
+            'title' => 'NinjaDevs'
         ),
     );
 
@@ -77,7 +77,7 @@ function ninjadevsio_add_login_link($meta = false) {
 
     $args = array(
         'id' => 'bp-clan',
-        'title' => '<img src="/menu-clan.png" alt="Clan">',
+        'title' => 'Clan',
         'href' => '/clan',
         'meta' => array(
             'class' => 'bp-clan',
@@ -89,7 +89,7 @@ function ninjadevsio_add_login_link($meta = false) {
 
     $args = array(
         'id' => 'bp-clans',
-        'title' => '<img src="/menu-clans.png" alt="Clans">',
+        'title' => 'Clans',
         'href' => '/clan',
         'meta' => array(
             'class' => 'bp-clans',
@@ -101,7 +101,7 @@ function ninjadevsio_add_login_link($meta = false) {
 
     $args = array(
         'id' => 'bp-wall',
-        'title' => '<img src="/menu-wall.png" alt="Wall">',
+        'title' => 'Wall',
         'href' => '/wall',
         'meta' => array(
             'class' => 'bp-wall',
