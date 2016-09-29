@@ -2785,6 +2785,10 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
     color: #000;
 }
 
+body.groups #buddypress ul.item-list li div.meta {
+		margin-top: 0;
+}
+
 @media only screen and (max-width: 60em) {
 
 	#buddypress ul.item-list li,
@@ -2803,8 +2807,20 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
 	    font-size: 14px;
 	}
 
+	body.groups #buddypress ul.item-list li div.meta {
+	    margin-top: 0;
+	}
+
 	#buddypress span.activity {
 	    font-size: 11px;
+	}
+
+	body.directory h1.page-title {
+		display: none;
+	}
+
+	body.directory .site-content {
+    padding-top: 4em;
 	}
 
 }
