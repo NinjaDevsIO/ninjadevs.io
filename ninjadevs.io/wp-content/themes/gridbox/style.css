@@ -2780,6 +2780,11 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
     text-align: left;
 }
 
+.more-link:hover, .more-link:active {
+    background: #eca546;
+    color: #000;
+}
+
 @media only screen and (max-width: 60em) {
 
 	#buddypress ul.item-list li,
