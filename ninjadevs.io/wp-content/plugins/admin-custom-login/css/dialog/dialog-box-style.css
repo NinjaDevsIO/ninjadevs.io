@@ -1,0 +1,15 @@
+
+.dialog__content, .dialog__content:after, .dialog__content:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+.dialog-button , .dialog-button-close
+{
+	color: #74716D;
+	text-decoration: none;
+	outline: none;
+	padding: 1em 2em;
+	outline: none;
+	font-weight: 600;
+	border: none;
+	color: #fff;
+	background: #c94e50;
+}
