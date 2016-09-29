@@ -2782,7 +2782,16 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
 
 @media only screen and (max-width: 60em) {
 
-	#buddypress ul.item-list li {
+	#buddypress ul.item-list li,
+	body.page-parent #buddypress ul.item-list li {
+	    padding: 15px 20px;
+	    width: 100%;
+	    float: left;
+	    font-size: 14px;
+	}
+
+	body.groups #buddypress ul.item-list li,
+	body.members #buddypress ul.item-list li {
 	    padding: 15px 20px;
 	    width: 100%;
 	    float: left;
