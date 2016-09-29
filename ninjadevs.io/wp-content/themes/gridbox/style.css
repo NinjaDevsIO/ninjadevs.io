@@ -2756,11 +2756,28 @@ input[type="submit"]:active {
 		margin-left: auto;
 }
 
-#buddypress ul.item-list li {
+body.groups #buddypress ul.item-list li,
+body.members #buddypress ul.item-list li  {
 		padding: 15px 20px;
 		width: 50%;
 		float: left;
 		font-size: 14px;
+}
+
+body.page-parent #buddypress ul.item-list li
+  {
+		padding: 15px 20px;
+		width: 100%;
+		float: left;
+		font-size: 14px;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+    text-align: center;
+}
+
+.entry-content {
+    text-align: left;
 }
 
 @media only screen and (max-width: 60em) {
