@@ -2,62 +2,62 @@
 
 final class ITSEC_WordPress_Tweaks {
 	private static $instance = false;
-	
+
 	private $config_hooks_added = false;
 	private $settings;
 	private $first_xmlrpc_credentials;
-	
-	
+
+
 	private function __construct() {
 		$this->init();
 	}
-	
+
 	public static function get_instance() {
 		if ( ! self::$instance ) {
 			self::$instance = new self;
 		}
-		
+
 		return self::$instance;
 	}
-	
+
 	public static function activate() {
 		$self = self::get_instance();
-		
+
 		$self->add_config_hooks();
 		ITSEC_Response::regenerate_server_config();
 		ITSEC_Response::regenerate_wp_config();
 	}
-	
+
 	public static function deactivate() {
 		$self = self::get_instance();
-		
+
 		$self->remove_config_hooks();
 		ITSEC_Response::regenerate_server_config();
 		ITSEC_Response::regenerate_wp_config();
 	}
-	
+
 	public function add_config_hooks() {
 		if ( $this->config_hooks_added ) {
 			return;
 		}
-		
+
 		add_filter( 'itsec_filter_apache_server_config_modification', array( $this, 'filter_apache_server_config_modification' ) );
 		add_filter( 'itsec_filter_nginx_server_config_modification', array( $this, 'filter_nginx_server_config_modification' ) );
 		add_filter( 'itsec_filter_litespeed_server_config_modification', array( $this, 'filter_litespeed_server_config_modification' ) );
 		add_filter( 'itsec_filter_wp_config_modification', array( $this, 'filter_wp_config_modification' ) );
-		
+
 		$this->config_hooks_added = true;
 	}
-	
+
 	public function remove_config_hooks() {
 		remove_filter( 'itsec_filter_apache_server_config_modification', array( $this, 'filter_apache_server_config_modification' ) );
 		remove_filter( 'itsec_filter_nginx_server_config_modification', array( $this, 'filter_nginx_server_config_modification' ) );
 		remove_filter( 'itsec_filter_litespeed_server_config_modification', array( $this, 'filter_litespeed_server_config_modification' ) );
 		remove_filter( 'itsec_filter_wp_config_modification', array( $this, 'filter_wp_config_modification' ) );
-		
+
 		$this->config_hooks_added = false;
 	}
-	
+
 	public function init() {
 		$this->add_config_hooks();
 
@@ -122,14 +122,14 @@ final class ITSEC_WordPress_Tweaks {
 				$username,
 				$password
 			);
-			
-			return $filter_var;
+
+			return $filter_val;
 		}
-		
+
 		if ( $username === $this->first_xmlrpc_credentials[0] && $password === $this->first_xmlrpc_credentials[1] ) {
-			return $filter_var;
+			return $filter_val;
 		}
-		
+
 		status_header( 405 );
 		header( 'Content-Type: text/plain' );
 		die( __( 'XML-RPC services are disabled on this site.' ) );
@@ -217,11 +217,11 @@ final class ITSEC_WordPress_Tweaks {
 	 */
 	function store_jquery_version() {
 		global $wp_scripts;
-		
+
 		if ( ( is_home() || is_front_page() ) && is_user_logged_in() ) {
 			$stored_jquery_version = ITSEC_Modules::get_setting( 'wordpress-tweaks', 'jquery_version' );
 			$current_jquery_version = $wp_scripts->registered['jquery']->ver;
-			
+
 			if ( $current_jquery_version !== $stored_jquery_version ) {
 				ITSEC_Modules::set_setting( 'wordpress-tweaks', 'jquery_version', $current_jquery_version );
 			}
@@ -288,25 +288,25 @@ final class ITSEC_WordPress_Tweaks {
 
 	public function filter_wp_config_modification( $modification ) {
 		require_once( dirname( __FILE__ ) . '/config-generators.php' );
-		
+
 		return ITSEC_WordPress_Tweaks_Config_Generators::filter_wp_config_modification( $modification );
 	}
-	
+
 	public function filter_apache_server_config_modification( $modification ) {
 		require_once( dirname( __FILE__ ) . '/config-generators.php' );
-		
+
 		return ITSEC_WordPress_Tweaks_Config_Generators::filter_apache_server_config_modification( $modification );
 	}
-	
+
 	public function filter_nginx_server_config_modification( $modification ) {
 		require_once( dirname( __FILE__ ) . '/config-generators.php' );
-		
+
 		return ITSEC_WordPress_Tweaks_Config_Generators::filter_nginx_server_config_modification( $modification );
 	}
-	
+
 	public function filter_litespeed_server_config_modification( $modification ) {
 		require_once( dirname( __FILE__ ) . '/config-generators.php' );
-		
+
 		return ITSEC_WordPress_Tweaks_Config_Generators::filter_litespeed_server_config_modification( $modification );
 	}
 }

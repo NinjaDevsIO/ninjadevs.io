@@ -133,3 +133,19 @@ final class ITSEC_User_Security_Check_Settings_Page extends ITSEC_Module_Setting
 	}
 }
 new ITSEC_User_Security_Check_Settings_Page();
+
+
+final class ITSEC_Version_Management_Settings_Page extends ITSEC_Module_Settings_Page {
+	public function __construct() {
+		$this->id = 'version-management';
+		$this->title = __( 'Version Management', 'better-wp-security' );
+		$this->description = __( 'Protect your site when outdated software is not updated quickly enough.', 'better-wp-security' );
+		$this->type = 'recommended';
+		$this->pro = true;
+		$this->upsell = true;
+		$this->upsell_url = 'https://ithemes.com/wordpress-version-management-ithemes-security-pro/?utm_source=wordpressadmin&utm_medium=widget&utm_campaign=itsecfreecta';
+
+		parent::__construct();
+	}
+}
+new ITSEC_Version_Management_Settings_Page();

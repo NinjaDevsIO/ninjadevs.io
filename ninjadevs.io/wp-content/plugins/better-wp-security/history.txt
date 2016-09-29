@@ -542,3 +542,13 @@
 	Code Cleanup: Removed legacy code that is no longer needed.
 	Enhancement: Started tracking when a user was last seen as logged in and active for future use.
 	Misc: Added a placeholder for the Pro feature "User Security Check".
+5.6.2 - 2016-09-27 - Chris Jean
+	Security Fix: Fixed issue where a locked out but not yet blacklisted IP/user could receive different HTTP headers when testing a valid username/password combination. Thanks Leon Atkinson of 18INT for contacting us about this issue.
+	Security Fix: Updated log output to prevent specific kinds of logged requests from displaying without sanitization. Thanks to Slavco Mihajloski for contacting us about this issue.
+	Bug Fix: The Security > Security Check link now works as expected in multisite.
+	Bug Fix: Fixed bug that could prevent the "Filter Long URL Strings" feature from working properly.
+	Bug Fix: Removed restrictions in the "Filter Long URL Strings" feature that were unrelated to request length.
+	Bug Fix: Corrected a settings description typo in Global Settings.
+	Bug Fix: Fixed bug that could result in issues authenticating over XML-RPC when the WordPress Tweaks > Multiple Authentication Attempts per XML-RPC Request setting is set to "Block".
+	Misc: Added placeholder for the Version Management module of iThemes Security Pro.
+	Misc: Updated build number to trigger some updates.

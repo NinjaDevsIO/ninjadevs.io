@@ -644,3 +644,32 @@ body.itsec-modal-open {
 .itsec-two-factor .dashicons.dashicons-unlock {
 	color: #dc3232;
 }
+.itsec-password-age {
+	display:inline-block;
+}
+.itsec-password-strength {
+	background: #ddd;
+	border: 1px solid #aaa;
+	border-radius: 3px;
+	color: #23282d;
+	display: inline-block;
+	font-size: 11px;
+	line-height: 1.5;
+	padding: 0px 4px;
+}
+.itsec-password-strength.short {
+	background: #f1adad;
+	border-color: #e35b5b;
+}
+.itsec-password-strength.bad {
+	background-color: #fbc5a9;
+	border-color: #f78b53;
+}
+.itsec-password-strength.good {
+	background-color: #ffe399;
+	border-color: #ffc733;
+}
+.itsec-password-strength.strong {
+	background-color: #c1e1b9;
+	border-color: #83c373;
+}

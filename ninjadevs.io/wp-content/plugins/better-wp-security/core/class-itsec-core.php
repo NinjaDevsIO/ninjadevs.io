@@ -74,7 +74,7 @@ if ( ! class_exists( 'ITSEC_Core' ) ) {
 		public function init( $plugin_file, $plugin_name ) {
 			global $itsec_globals, $itsec_logger, $itsec_lockout;
 
-			$this->plugin_build = 4041; // used to trigger updates
+			$this->plugin_build = 4043; // used to trigger updates
 			$this->plugin_file = $plugin_file;
 			$this->plugin_dir = dirname( $plugin_file ) . '/';
 			$this->current_time = current_time( 'timestamp' );
@@ -621,7 +621,7 @@ if ( ! class_exists( 'ITSEC_Core' ) ) {
 		}
 
 		public static function get_security_check_page_url() {
-			return admin_url( 'admin.php?page=itsec&module=security-check' );
+			return network_admin_url( 'admin.php?page=itsec&module=security-check' );
 		}
 
 		public static function set_interactive( $interactive ) {

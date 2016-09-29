@@ -27,6 +27,9 @@ final class ITSEC_Lockout {
 		//Check for host lockouts
 		add_action( 'init', array( $this, 'check_lockout' ) );
 
+		// Ensure that locked out users are prevented from checking logins.
+		add_filter( 'authenticate', array( $this, 'check_authenticate_lockout' ), 30 );
+
 		// Updated temp whitelist to ensure that admin users are automatically added.
 		add_action( 'init', array( $this, 'update_temp_whitelist' ), 0 );
 
@@ -51,6 +54,16 @@ final class ITSEC_Lockout {
 
 	public function init_settings_page() {
 		require_once( dirname( __FILE__ ) . '/sidebar-widget-active-lockouts.php' );
+	}
+
+	public function check_authenticate_lockout( $user ) {
+		if ( ! ( $user instanceof WP_User ) ) {
+			return $user;
+		}
+
+		$this->check_lockout( $user->ID );
+
+		return $user;
 	}
 
 	/**

@@ -1,9 +1,9 @@
 === iThemes Security (formerly Better WP Security) ===
-Contributors: ithemes, chrisjean, aaroncampbell, gerroald, mattdanner
+Contributors: ithemes, chrisjean, gerroald, mattdanner
 Tags: security, security plugin, malware, hack, secure, block, SSL, admin, htaccess, lockdown, login, protect, protection, anti virus, attack, injection, login security, maintenance, permissions, prevention, authentication, administration, password, brute force, ban, permissions, bots, user agents, xml rpc, security log
 Requires at least: 4.1
-Tested up to: 4.6
-Stable tag: 5.6.1
+Tested up to: 4.6.1
+Stable tag: 5.6.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -187,6 +187,17 @@ Free support may be available with the help of the community in the <a href="htt
 5. Free malware scan powered by Sucuri SiteCheck.
 
 == Changelog ==
+
+= 5.6.2 =
+ * Security Fix: Fixed issue where a locked out but not yet blacklisted IP/user could receive different HTTP headers when testing a valid username/password combination. Thanks Leon Atkinson of 18INT for contacting us about this issue.
+ * Security Fix: Updated log output to prevent specific kinds of logged requests from displaying without sanitization. Thanks to Slavco Mihajloski for contacting us about this issue.
+ * Bug Fix: The Security > Security Check link now works as expected in multisite.
+ * Bug Fix: Fixed bug that could prevent the "Filter Long URL Strings" feature from working properly.
+ * Bug Fix: Removed restrictions in the "Filter Long URL Strings" feature that were unrelated to request length.
+ * Bug Fix: Corrected a settings description typo in Global Settings.
+ * Bug Fix: Fixed bug that could result in issues authenticating over XML-RPC when the WordPress Tweaks > Multiple Authentication Attempts per XML-RPC Request setting is set to "Block".
+ * Misc: Added placeholder for the Version Management module of iThemes Security Pro.
+ * Misc: Updated build number to trigger some updates.
 
 = 5.6.1 =
  * Bug Fix: Fixed a potential logging issue that could prevent some lockout notices from being properly logged on non-English sites.
@@ -1567,6 +1578,9 @@ This release is a complete rewrite from the ground up. Special thanks to Cory Mi
 * First alpha release including simple feature set.
 
 == Upgrade Notice ==
+
+= 5.6.2 =
+Version 5.6.2 contains important security updates and bug fixes. It is important to update immediately.
 
 = 5.6.1 =
 Version 5.6.1 contains bug fixes and PHP 7 compatibility changes. It is recommended for all users.

@@ -46,6 +46,7 @@ final class ITSEC_Lib_User_Activity {
 
 		if ( $last_seen < time() - HOUR_IN_SECONDS ) {
 			update_user_meta( $this->user_id, 'itsec_user_activity_last_seen', time() );
+			delete_user_meta( $this->user_id, 'itsec_user_activity_last_seen_notification_sent' );
 		}
 	}
 }

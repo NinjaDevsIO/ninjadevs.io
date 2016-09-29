@@ -155,7 +155,7 @@ final class ITSEC_Logger {
 
 		if ( isset( $this->logger_modules[ $module ] ) ) {
 			$type = ITSEC_Modules::get_setting( 'global', 'log_type' );
-			
+
 			if ( 'database' === $type || 'both' === $type ) {
 				$this->_log_event_to_db( $module, $priority, $data, $host, $username, $user, $url, $referrer );
 			}
@@ -320,7 +320,7 @@ final class ITSEC_Logger {
 					$items .= '<li>';
 
 					if ( ! is_numeric( $key ) ) {
-						$items .= '<h3>' . $key . '</h3>';
+						$items .= '<h3>' . esc_html( $key ) . '</h3>';
 					}
 
 					$items .= $this->print_array( $item, true ) . PHP_EOL;
@@ -330,7 +330,7 @@ final class ITSEC_Logger {
 				} else {
 
 					if ( strlen( trim( $item ) ) > 0 ) {
-						$items .= '<li><h3>' . $key . ' = ' . $item . '</h3></li>' . PHP_EOL;
+						$items .= '<li><h3>' . esc_html( $key ) . ' = ' . esc_html( $item ) . '</h3></li>' . PHP_EOL;
 					}
 
 				}
@@ -366,7 +366,7 @@ final class ITSEC_Logger {
 
 			//Clean up the database log first
 			$type = ITSEC_Modules::get_setting( 'global', 'log_type' );
-			
+
 			if ( 'database' === $type || 'both' === $type ) {
 
 				$wpdb->query( "DELETE FROM `" . $wpdb->base_prefix . "itsec_log` WHERE `log_date_gmt` < '" . date( 'Y-m-d H:i:s', $itsec_globals['current_time_gmt'] - ( ITSEC_Modules::get_setting( 'global', 'log_rotation' ) * DAY_IN_SECONDS ) ) . "';" );
@@ -404,7 +404,7 @@ final class ITSEC_Logger {
 	 */
 	private function rotate_log() {
 		$log_file = $this->get_log_file();
-		
+
 		if ( ! @file_exists( $log_file ) || @filesize( $log_file ) < 10485760 ) { // 10485760 is 1 mebibyte
 			return;
 		}
@@ -496,24 +496,24 @@ final class ITSEC_Logger {
 			return $this->log_file;
 			$this->rotate_log();
 		}
-		
+
 		$log_location = ITSEC_Modules::get_setting( 'global', 'log_location' );
 		$log_info = ITSEC_Modules::get_setting( 'global', 'log_info' );
-		
+
 		if ( empty( $log_info ) ) {
 			// We need wp_generate_password() to create a cryptographically secure file name
 			if ( ! function_exists( 'wp_generate_password' ) ) {
 				$this->log_file = false;
 				return false;
 			}
-			
+
 			$log_info = substr( sanitize_title( get_bloginfo( 'name' ) ), 0, 20 ) . '-' . wp_generate_password( 30, false );
-			
+
 			ITSEC_Modules::set_setting( 'global', 'log_info', $log_info );
 		}
-		
+
 		$this->log_file = "$log_location/event-log-$log_info.log";
-		
+
 		return $this->log_file;
 	}
 
@@ -524,7 +524,7 @@ final class ITSEC_Logger {
 	 */
 	private function _prepare_log_file() {
 		$log_file = $this->get_log_file();
-		
+
 		// We can't prepare a file if we can't get the file name
 		if ( false === $log_file ) {
 			return false;
@@ -544,13 +544,13 @@ final class ITSEC_Logger {
 
 	private function add_to_log_file( $details ) {
 		$log_file = $this->get_log_file();
-		
+
 		if ( false === $log_file ) {
 			return false;
 		}
-		
+
 		@error_log( $details . PHP_EOL, 3, $log_file );
-		
+
 		return true;
 	}
 }

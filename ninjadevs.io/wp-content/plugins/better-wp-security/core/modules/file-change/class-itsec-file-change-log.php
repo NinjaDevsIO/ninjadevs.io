@@ -114,7 +114,7 @@ final class ITSEC_File_Change_Log extends ITSEC_WP_List_Table {
 			if ( sizeof( $item['added_detail'] ) > 0 ) {
 
 				foreach ( $item['added_detail'] as $file => $details ) {
-					echo '<li class="file_change_detail"><strong>' . __( 'File', 'better-wp-security' ) . '</strong>: ' . $file . '<br /><strong>' . __( 'Date', 'better-wp-security' ) . '</strong>: ' . date( 'l F jS, Y \a\t g:i a e', ( isset( $details['mod_date'] ) ? $details['mod_date'] : $details['d'] ) ) . '</li>';
+					echo '<li class="file_change_detail"><strong>' . __( 'File', 'better-wp-security' ) . '</strong>: ' . esc_html( $file ) . '<br /><strong>' . __( 'Date', 'better-wp-security' ) . '</strong>: ' . date( 'l F jS, Y \a\t g:i a e', ( isset( $details['mod_date'] ) ? $details['mod_date'] : $details['d'] ) ) . '</li>';
 				}
 
 			} else {
@@ -132,7 +132,7 @@ final class ITSEC_File_Change_Log extends ITSEC_WP_List_Table {
 			if ( sizeof( $item['removed_detail'] ) > 0 ) {
 
 				foreach ( $item['removed_detail'] as $file => $details ) {
-					echo '<li class="file_change_detail"><strong>' . __( 'File', 'better-wp-security' ) . '</strong>:' . $file . '<br /><strong>' . __( 'Date', 'better-wp-security' ) . '</strong>: ' . date( 'l F jS, Y \a\t g:i a e', ( isset( $details['mod_date'] ) ? $details['mod_date'] : $details['d'] ) ) . '</li>';
+					echo '<li class="file_change_detail"><strong>' . __( 'File', 'better-wp-security' ) . '</strong>:' . esc_html( $file ) . '<br /><strong>' . __( 'Date', 'better-wp-security' ) . '</strong>: ' . date( 'l F jS, Y \a\t g:i a e', ( isset( $details['mod_date'] ) ? $details['mod_date'] : $details['d'] ) ) . '</li>';
 				}
 
 			} else {
@@ -150,7 +150,7 @@ final class ITSEC_File_Change_Log extends ITSEC_WP_List_Table {
 			if ( sizeof( $item['changed_detail'] ) > 0 ) {
 
 				foreach ( $item['changed_detail'] as $file => $details ) {
-					echo '<li class="file_change_detail"><strong>' . __( 'File', 'better-wp-security' ) . '</strong>: ' . $file . '<br /><strong>' . __( 'Date', 'better-wp-security' ) . '</strong>: ' . date( 'l F jS, Y \a\t g:i a e', ( isset( $details['mod_date'] ) ? $details['mod_date'] : $details['d'] ) ) . '</li>';
+					echo '<li class="file_change_detail"><strong>' . __( 'File', 'better-wp-security' ) . '</strong>: ' . esc_html( $file ) . '<br /><strong>' . __( 'Date', 'better-wp-security' ) . '</strong>: ' . date( 'l F jS, Y \a\t g:i a e', ( isset( $details['mod_date'] ) ? $details['mod_date'] : $details['d'] ) ) . '</li>';
 				}
 
 			} else {

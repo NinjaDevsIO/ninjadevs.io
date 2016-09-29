@@ -195,7 +195,7 @@ final class ITSEC_Global_Settings_Page extends ITSEC_Module_Settings_Page {
 			<th scope="row"><label for="itsec-global-log_type"><?php _e( 'Log Type', 'better-wp-security' ); ?></label></th>
 			<td>
 				<?php $form->add_select( 'log_type', $log_types ); ?>
-				<label for="itsec-global-log_type"><?php _e( 'How should even logs be kept', 'better-wp-security' ); ?></label>
+				<label for="itsec-global-log_type"><?php _e( 'How should event logs be kept', 'better-wp-security' ); ?></label>
 				<p class="description"><?php _e( 'iThemes Security can log events in multiple ways, each with advantages and disadvantages. Database Only puts all events in the database with your posts and other WordPress data. This makes it easy to retrieve and process but can be slower if the database table gets very large. File Only is very fast but the plugin does not process the logs itself as that would take far more resources. For most users or smaller sites Database Only should be fine. If you have a very large site or a log processing software then File Only might be a better option.', 'better-wp-security' ); ?></p>
 			</td>
 		</tr>
