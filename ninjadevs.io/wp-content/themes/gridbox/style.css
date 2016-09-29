@@ -2820,7 +2820,11 @@ body.groups #buddypress ul.item-list li div.meta {
 	}
 
 	body.directory .site-content {
-    padding-top: 4em;
+    padding-top: 5em;
+	}
+
+	body.activity .site-content {
+		padding-top: 2em;
 	}
 
 }
