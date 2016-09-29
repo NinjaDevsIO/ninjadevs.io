@@ -2801,6 +2801,10 @@ body.activity .site-content {
 	padding-top: 2em;
 }
 
+body.groups #buddypress ul.item-list li div.group-button + div.meta {
+		margin-top: 30px;
+}
+
 @media only screen and (max-width: 60em) {
 
 	#buddypress ul.item-list li,
