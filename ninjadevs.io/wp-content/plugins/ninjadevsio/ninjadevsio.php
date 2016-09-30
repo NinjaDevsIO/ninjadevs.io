@@ -20,6 +20,10 @@ defined('ABSPATH') or die('hmmm!');
  */
 require_once plugin_dir_path( __FILE__ ) . 'includes/common.php';
 /**
+ * Adminbar style.
+ */
+require_once plugin_dir_path( __FILE__ ) . 'includes/adminbar-style.php';
+/**
  * Admin specific hooks.
  */
 require_once plugin_dir_path( __FILE__ ) . 'includes/admin.php';
