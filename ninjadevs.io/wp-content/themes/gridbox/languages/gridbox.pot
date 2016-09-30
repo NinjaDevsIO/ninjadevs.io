@@ -1,0 +1,473 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Gridbox\n"
+"Report-Msgid-Bugs-To: https://themezee.com/\n"
+"POT-Creation-Date: 2016-09-16 12:16+0100\n"
+"PO-Revision-Date: 2016-09-16 12:16+0100\n"
+"Last-Translator: \n"
+"Language-Team: ThemeZee <support@themezee.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:17
+msgid "404: Page not found"
+msgstr ""
+
+#: 404.php:22
+msgid ""
+"It looks like nothing was found at this location. Maybe try a search or one "
+"of the links below?"
+msgstr ""
+
+#: comments.php:30
+msgid "One comment"
+msgstr ""
+
+#: comments.php:30
+#, php-format
+msgid "% comments"
+msgstr ""
+
+#: comments.php:55
+msgid "Comments are closed."
+msgstr ""
+
+#: comments.php:59
+msgid "Leave a Reply"
+msgstr ""
+
+#: functions.php:42
+msgid "Main Navigation"
+msgstr ""
+
+#: functions.php:106
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:108
+msgid "Appears on single posts and pages."
+msgstr ""
+
+#: functions.php:116
+msgid "Magazine Homepage"
+msgstr ""
+
+#: functions.php:118
+msgid ""
+"Appears on Magazine Homepage template only. You can use the Magazine Posts "
+"widgets here."
+msgstr ""
+
+#: header.php:26
+msgid "Skip to content"
+msgstr ""
+
+#: search.php:16
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: searchform.php:12 searchform.php:16
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:14
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr ""
+
+#: searchform.php:20
+msgctxt "submit button"
+msgid "Search"
+msgstr ""
+
+#: template-magazine.php:43
+msgid ""
+"Please go to Appearance &#8594; Widgets and add at least one widget to the "
+"\"Magazine Homepage\" widget area. You can use the Magazine Posts widgets to "
+"set up the theme like the demo website."
+msgstr ""
+
+#: inc/back-compat.php:41 inc/back-compat.php:51 inc/back-compat.php:64
+#, php-format
+msgid ""
+"%1$s requires at least WordPress version %2$s. You are running version %3$s. "
+"Please upgrade and try again."
+msgstr ""
+
+#: inc/template-tags.php:207
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: inc/template-tags.php:269 inc/widgets/widget-magazine-posts-grid.php:180
+msgid "Read more"
+msgstr ""
+
+#: inc/template-tags.php:290
+msgctxt "post navigation"
+msgid "Previous Post:"
+msgstr ""
+
+#: inc/template-tags.php:291
+msgctxt "post navigation"
+msgid "Next Post:"
+msgstr ""
+
+#: inc/template-tags.php:352
+msgctxt "pagination"
+msgid "Next Posts"
+msgstr ""
+
+#: inc/template-tags.php:353
+msgctxt "pagination"
+msgid "Previous Posts"
+msgstr ""
+
+#: inc/template-tags.php:378
+#, php-format
+msgid "Powered by %1$s and %2$s."
+msgstr ""
+
+#: inc/theme-info.php:19 inc/theme-info.php:40
+#, php-format
+msgid "Welcome to %1$s %2$s"
+msgstr ""
+
+#: inc/theme-info.php:20
+msgid "Theme Info"
+msgstr ""
+
+#: inc/theme-info.php:46 inc/customizer/customizer.php:124
+msgid "Theme Links"
+msgstr ""
+
+#: inc/theme-info.php:47 inc/customizer/customizer.php:127
+msgid "https://themezee.com/themes/gridbox/"
+msgstr ""
+
+#: inc/theme-info.php:47 inc/customizer/customizer.php:128
+msgid "Theme Page"
+msgstr ""
+
+#: inc/theme-info.php:48 inc/customizer/customizer.php:134
+msgid "Theme Demo"
+msgstr ""
+
+#: inc/theme-info.php:49 inc/theme-info.php:70
+#: inc/customizer/customizer.php:139
+msgid "https://themezee.com/docs/gridbox-documentation/"
+msgstr ""
+
+#: inc/theme-info.php:49 inc/theme-info.php:64
+#: inc/customizer/customizer.php:140
+msgid "Theme Documentation"
+msgstr ""
+
+#: inc/theme-info.php:50 inc/theme-info.php:152
+#: inc/customizer/customizer.php:145
+msgid "https://wordpress.org/support/theme/gridbox/reviews/?filter=5"
+msgstr ""
+
+#: inc/theme-info.php:50 inc/customizer/customizer.php:146
+msgid "Rate this theme"
+msgstr ""
+
+#: inc/theme-info.php:57
+#, php-format
+msgid "Getting Started with %s"
+msgstr ""
+
+#: inc/theme-info.php:67
+msgid ""
+"You need help to setup and configure this theme? We got you covered with an "
+"extensive theme documentation on our website."
+msgstr ""
+
+#: inc/theme-info.php:71
+#, php-format
+msgid "View %s Documentation"
+msgstr ""
+
+#: inc/theme-info.php:77 inc/customizer/customizer.php:30
+msgid "Theme Options"
+msgstr ""
+
+#: inc/theme-info.php:80
+#, php-format
+msgid ""
+"%s makes use of the Customizer for all theme settings. Click on \"Customize "
+"Theme\" to open the Customizer now."
+msgstr ""
+
+#: inc/theme-info.php:83
+msgid "Customize Theme"
+msgstr ""
+
+#: inc/theme-info.php:103
+msgid "Get more features"
+msgstr ""
+
+#: inc/theme-info.php:110 inc/customizer/functions/custom-controls.php:99
+msgid "Pro Version Add-on"
+msgstr ""
+
+#: inc/theme-info.php:113 inc/customizer/functions/custom-controls.php:102
+#, php-format
+msgid ""
+"Purchase the %s Pro Add-on and get additional features and advanced "
+"customization options."
+msgstr ""
+
+#: inc/theme-info.php:116 inc/customizer/functions/custom-controls.php:106
+msgid "https://themezee.com/addons/gridbox-pro/"
+msgstr ""
+
+#: inc/theme-info.php:117 inc/customizer/functions/custom-controls.php:107
+#, php-format
+msgid "Learn more about %s Pro"
+msgstr ""
+
+#: inc/theme-info.php:127 inc/customizer/functions/custom-controls.php:115
+msgid "Recommended Plugins"
+msgstr ""
+
+#: inc/theme-info.php:130 inc/customizer/functions/custom-controls.php:118
+msgid ""
+"Extend the functionality of your WordPress website with our free and easy to "
+"use plugins."
+msgstr ""
+
+#: inc/theme-info.php:134 inc/customizer/functions/custom-controls.php:123
+msgid "Install Plugins"
+msgstr ""
+
+#: inc/theme-info.php:149
+#, php-format
+msgid "%1$s is proudly brought to you by %2$s. If you like this theme, %3$s :)"
+msgstr ""
+
+#: inc/theme-info.php:151
+msgid "https://themezee.com/"
+msgstr ""
+
+#: inc/theme-info.php:152
+msgid "Review Gridbox"
+msgstr ""
+
+#: inc/theme-info.php:152
+msgid "rate it"
+msgstr ""
+
+#: inc/customizer/customizer.php:40
+msgid "Background"
+msgstr ""
+
+#: inc/customizer/customizer.php:51
+msgid "Display Site Title"
+msgstr ""
+
+#: inc/customizer/customizer.php:68
+msgid "Header Image Link"
+msgstr ""
+
+#: inc/customizer/customizer.php:85
+msgid "Hide header image on front page"
+msgstr ""
+
+#: inc/customizer/functions/custom-controls.php:65
+#: inc/widgets/widget-magazine-posts-grid.php:337
+msgid "All Categories"
+msgstr ""
+
+#: inc/customizer/sections/customizer-featured.php:19
+msgid "Featured Posts"
+msgstr ""
+
+#: inc/customizer/sections/customizer-featured.php:35
+msgid "Activate Featured Posts"
+msgstr ""
+
+#: inc/customizer/sections/customizer-featured.php:49
+msgid "Show featured posts on Magazine Homepage"
+msgstr ""
+
+#: inc/customizer/sections/customizer-featured.php:64
+msgid "Show featured posts on posts page"
+msgstr ""
+
+#: inc/customizer/sections/customizer-featured.php:82
+msgid "Featured Posts Category"
+msgstr ""
+
+#: inc/customizer/sections/customizer-general.php:19
+msgid "General Settings"
+msgstr ""
+
+#: inc/customizer/sections/customizer-general.php:34
+msgid "Theme Layout"
+msgstr ""
+
+#: inc/customizer/sections/customizer-general.php:40
+msgid "Left Sidebar"
+msgstr ""
+
+#: inc/customizer/sections/customizer-general.php:41
+msgid "Right Sidebar"
+msgstr ""
+
+#: inc/customizer/sections/customizer-general.php:56
+msgid "Sticky Header"
+msgstr ""
+
+#: inc/customizer/sections/customizer-general.php:70
+msgid "Enable sticky header feature"
+msgstr ""
+
+#: inc/customizer/sections/customizer-general.php:87
+msgid "Blog Title"
+msgstr ""
+
+#: inc/customizer/sections/customizer-general.php:104
+msgid "Blog Description"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:19
+msgid "Post Settings"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:34
+msgid "Post Layout (archive pages)"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:40
+#: inc/widgets/widget-magazine-posts-grid.php:351
+msgid "Two Columns"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:41
+#: inc/widgets/widget-magazine-posts-grid.php:352
+msgid "Three Columns"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:42
+#: inc/widgets/widget-magazine-posts-grid.php:353
+msgid "Four Columns"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:56
+msgid "Excerpt Length"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:74
+msgid "Post Meta"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:89
+#: inc/widgets/widget-magazine-posts-grid.php:372
+msgid "Display post date"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:105
+#: inc/widgets/widget-magazine-posts-grid.php:379
+msgid "Display post author"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:121
+#: inc/widgets/widget-magazine-posts-grid.php:386
+msgid "Display post categories"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:139
+msgid "Single Posts"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:155
+msgid "Display featured image on single posts"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:171
+msgid "Display post tags on single posts"
+msgstr ""
+
+#: inc/customizer/sections/customizer-post.php:187
+msgid "Display post navigation on single posts"
+msgstr ""
+
+#: inc/customizer/sections/customizer-upgrade.php:19
+msgid "More Features"
+msgstr ""
+
+#: inc/widgets/widget-magazine-posts-grid.php:24
+#, php-format
+msgid "Magazine Posts: Grid (%s)"
+msgstr ""
+
+#: inc/widgets/widget-magazine-posts-grid.php:27
+msgid ""
+"Displays your posts from a selected category in a grid layout. Please use "
+"this widget ONLY in the Magazine Homepage widget area."
+msgstr ""
+
+#: inc/widgets/widget-magazine-posts-grid.php:270
+#, php-format
+msgid "View all posts from category %s"
+msgstr ""
+
+#: inc/widgets/widget-magazine-posts-grid.php:328
+msgid "Title:"
+msgstr ""
+
+#: inc/widgets/widget-magazine-posts-grid.php:334
+msgid "Category:"
+msgstr ""
+
+#: inc/widgets/widget-magazine-posts-grid.php:349
+msgid "Grid Layout:"
+msgstr ""
+
+#: inc/widgets/widget-magazine-posts-grid.php:358
+msgid "Number of posts:"
+msgstr ""
+
+#: inc/widgets/widget-magazine-posts-grid.php:364
+msgid "Excerpt Length:"
+msgstr ""
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:23
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:27
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:33
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: template-parts/content-page.php:25 template-parts/content-single.php:27
+msgid "Pages:"
+msgstr ""
