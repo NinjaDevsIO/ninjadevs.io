@@ -2820,6 +2820,15 @@ body.bp-user #content h1.page-title {
 		display:none;
 }
 
+#buddypress .filter label {
+		display: none;
+}
+
+.entry-title a:hover,
+.entry-title a:active {
+    color: #eca546;
+}
+
 @media only screen and (max-width: 60em) {
 
 	#buddypress ul.item-list li,
