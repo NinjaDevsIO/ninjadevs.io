@@ -25,3 +25,28 @@ function ninjadevsio_bp_per_page($query = '', $object = '') {
 add_filter('bp_ajax_querystring', 'ninjadevsio_bp_per_page', 9999, 2);
 
 /* -------------------------------------------------------------------------- */
+
+function ninjadevsio_bp_exclude_users($qs=false, $object=false) {
+    $excluded_user = '1';
+
+    if ($object != 'members')
+        return $qs;
+
+    $args = wp_parse_args($qs);
+
+    if (!empty($args['user_id']) || !empty($args['search_terms']))
+        return $qs;
+
+    if (!empty($args['exclude']))
+        $args['exclude'] = $args['exclude'] . ',' . $excluded_user;
+    else
+        $args['exclude'] = $excluded_user;
+
+    $qs = build_query($args);
+
+    return $qs;
+}
+
+add_action('bp_ajax_querystring', 'ninjadevsio_bp_exclude_users', 9999, 2);
+
+/* -------------------------------------------------------------------------- */
