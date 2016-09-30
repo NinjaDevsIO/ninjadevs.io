@@ -1,4 +1,4 @@
-<article <?php post_class('col-md-4'); ?>>
+<article <?php post_class('col-lg-4 col-sm-6'); ?>>
 
   <div class="card card-post">
 
