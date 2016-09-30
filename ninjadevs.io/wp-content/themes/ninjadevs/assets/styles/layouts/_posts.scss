@@ -1,0 +1,190 @@
+.card-post {
+
+  .card-title {
+
+    a {
+
+      &:hover, &:active, &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+
+  P {
+    font-weight: 100;
+  }
+
+  .card-footer {
+    background: $dark-gray-1;
+    color: $white;
+
+    .post-meta {
+
+      .meta-data {
+        padding-bottom: 4px;
+        margin-bottom: 4px;
+        border-bottom: 1px solid rgba(0,0,0,.2);
+        box-shadow: 0px 1px 0px rgba(100,100,100,.2);
+
+        &:last-child {
+          border-bottom: none;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+.post {
+
+  header {
+    text-align: center;
+    margin: 20px 0 40px;
+
+    .entry-title {
+      margin: 0;
+      font-size: 3.5rem;
+      letter-spacing: -0.7rem;
+    }
+
+    .entry-title-decoration {
+      color: $orange-1;
+      margin: 5px 0;
+    }
+
+    .entry-title-author {
+
+      a {
+        color: $dark-gray-1;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .entry-content {
+
+    h2, h3, h4, h5, h5 {
+      margin: 30px 0;
+    }
+
+    p {
+      font-size: 22px;
+      font-weight: 100;
+    }
+
+    code {
+      font-size: 18px;
+    }
+
+    .syntaxhighlighter {
+      padding: 20px;
+    }
+
+    .wp-caption, figure {
+
+      .wp-caption-text, figcaption {
+        color: $orange-2;
+        font-size: 18px;
+        margin-top: 10px;
+      }
+    }
+
+    table {
+      width: 100%;
+      margin: 45px;
+      text-align: left;
+
+      thead {
+
+        tr {
+
+          th {
+            font-size: 16px;
+            font-family: $headings-font-family;
+            letter-spacing: -2px;
+            word-spacing: -3px;
+            font-weight: bold;
+            color: $orange-1;
+            padding: 5px;
+            border-bottom: 2px solid $dark-gray-1;
+            background: $dark-gray-1;
+          }
+        }
+      }
+
+      tbody {
+
+        tr {
+
+          &:hover {
+
+            td {
+              background: $orange-3;
+            }
+          }
+
+          td {
+            color: $dark-gray-2;
+            padding: 5px;
+            font-size: 14px;
+            border: 1px solid $dark-gray-1;
+          }
+        }
+      }
+
+      tfoot {
+
+        tr {
+
+          td {
+            background: $dark-gray-2;
+            color: $white;
+            padding: 5px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    blockquote {
+      background: #f9f9f9;
+      border-left: 10px solid $orange-1;
+      margin: 1.5em 10px;
+      padding: 0.5em 10px;
+      quotes: "\201C""\201D""\2018""\2019";
+
+      &:before {
+        color: $orange-1;
+        content: open-quote;
+        font-size: 4em;
+        line-height: 0.1em;
+        margin-right: 0.25em;
+        vertical-align: -0.4em;
+      }
+
+      p {
+        font-size: 18px;
+        display: inline;
+      }
+
+      footer {
+        overflow: hidden;
+
+        cite {
+          margin-top: -10px;
+          float: right;
+        }
+      }
+    }
+  }
+
+  footer {
+
+    .post-meta {
+
+    }
+  }
+}
