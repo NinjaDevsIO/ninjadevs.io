@@ -1,5 +1,7 @@
 ## ninjadevs.io
 
+[![NinjaDevs.IO](https://drive.google.com/uc?export=download&id=0B1pDFiUHXp9WMWZ4cW8yQ1p2bjg)](http://ninjadevs.io/)
+
  - https://docs.docker.com/compose/wordpress
 
  ```
@@ -31,11 +33,11 @@ docker-compose
 ```
 docker-compose ps
 
-Name                        Command               State           Ports          
+Name                        Command               State           Ports
 -----------------------------------------------------------------------------------------
 ninjadevsio_db_1          docker-entrypoint.sh mysqld      Up      0.0.0.0:3306->3306/tcp
-ninjadevsio_wordpress_1   /entrypoint.sh apache2-for ...   Up      0.0.0.0:80->80/tcp     
-phpmyadmin                /run.sh phpmyadmin               Up      0.0.0.0:800->80/tcp    
+ninjadevsio_wordpress_1   /entrypoint.sh apache2-for ...   Up      0.0.0.0:80->80/tcp
+phpmyadmin                /run.sh phpmyadmin               Up      0.0.0.0:800->80/tcp
 ```
 
 ```
@@ -77,10 +79,28 @@ define('DB_PASSWORD', 'wordpress');
 define('DB_HOST', 'db:3306');
 ```
 
-### Prepare the remote database export for the local import development
+## Manually Backup Remote Site
 
 ```
-perl -p -i -e 's/(www\.)?ninjadevs.io/0.0.0.0/g' data_ninjadevs_io.sql
-perl -p -i -e 's/data.0.0.0.0/0.0.0.0/g' data_ninjadevs_io.sql
-perl -p -i -e 's/{REMOTE_DATABASE_NAME}/wordpress/g' data_ninjadevs_io.sql
+ssh {REMOTE_USERNAME}@ninjadevs.io
+
+rm -fr BACKUPS
+
+mysqldump -u {DB_USERNAME} -p -h {DB_HOST} {DB_NAME} | gzip > BACKUPS/ninjadevsio_`date +%F-%H-%M-%S`.sql.gz
+
+cp -Rp ninjadevs.io BACKUPS/ninjadevs.io_`date +%F-%H-%M-%S`
+
+exit
+```
+
+## Rsync your local uploads folder
+
+```
+rsync -chavzP --stats {REMOTE_USERNAME}@ninjadevs.io:/home/ninjadevsio/ninjadevs.io/wp-content/uploads  /Users/{LOCAL_USERNAME}/Sites/ninjadevs.io/ninjadevs.io/wp-content
+```
+
+## Get your own local copy
+
+```
+rsync -chavzP --stats {REMOTE_USERNAME}@ninjadevs.io:/home/ninjadevsio/BACKUPS  /Users/{LOCAL_USERNAME}/Sites/ninjadevs.io/BACKUPS/remote
 ```
