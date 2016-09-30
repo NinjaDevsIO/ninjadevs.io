@@ -45,3 +45,6 @@ Temporary Items
 # NPM & Bower
 node_modules
 bower_components
+
+# Theme Dist
+wp-content/themes/ninjadevs/dist
