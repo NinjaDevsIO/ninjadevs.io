@@ -2805,9 +2805,17 @@ body.groups #buddypress ul.item-list li div.group-button + div.meta {
 		margin-top: 30px;
 }
 
-#buddypress .comment-reply-link, #buddypress .generic-button a, #buddypress a.button, #buddypress button, #buddypress input[type=button], #buddypress input[type=reset], #buddypress input[type=submit], #buddypress ul.button-nav li a, a.bp-title-button {
+#buddypress .comment-reply-link,
+#buddypress .generic-button a,
+#buddypress a.button,
+#buddypress button,
+#buddypress input[type=button],
+#buddypress input[type=reset],
+#buddypress input[type=submit],
+#buddypress ul.button-nav li a, a.bp-title-button {
     border-radius: 3px;
 }
+
 @media only screen and (max-width: 60em) {
 
 	#buddypress ul.item-list li,

@@ -94,11 +94,11 @@ function ninjadevsio_view_thumb_column($col, $id) {
         echo the_post_thumbnail( 'thumb' );
 }
 
-add_filter('manage_posts_columns', 'ninjadevsio_add_thumb_column', 999);
-add_filter('manage_pages_columns', 'ninjadevsio_add_thumb_column', 999);
-
-add_action('manage_posts_custom_column', 'ninjadevsio_view_thumb_column', 999, 2);
-add_action('manage_pages_custom_column', 'ninjadevsio_view_thumb_column', 999, 2);
+// add_filter('manage_posts_columns', 'ninjadevsio_add_thumb_column', 999);
+// add_filter('manage_pages_columns', 'ninjadevsio_add_thumb_column', 999);
+//
+// add_action('manage_posts_custom_column', 'ninjadevsio_view_thumb_column', 999, 2);
+// add_action('manage_pages_custom_column', 'ninjadevsio_view_thumb_column', 999, 2);
 
 /* -------------------------------------------------------------------------- */
 
@@ -121,7 +121,7 @@ function change_bar_color() {
         }
 
         #wpadminbar {
-            background: #007acc !important;
+            background: #000 !important;
             height: 55px;
         }
 
@@ -155,7 +155,7 @@ function change_bar_color() {
         	color: #fff;
         	-webkit-box-shadow: none;
         	box-shadow: none;
-        	background: #007acc;
+        	background: #000;
         }
 
         #wpadminbar .ab-submenu .ab-item {
@@ -164,13 +164,19 @@ function change_bar_color() {
 
         #wpadminbar .quicklinks .menupop ul.ab-sub-secondary,
         #wpadminbar .quicklinks .menupop ul.ab-sub-secondary .ab-submenu {
-            background: #007acc;
+            background: #000;
             color: #fff;
         }
 
         ul.ab-submenu a.ab-item:hover {
             color: #fff !important;
         }
+
+		#adminmenu,
+		#adminmenu .wp-submenu,
+		#adminmenuback, #adminmenuwrap {
+		    background-color: #000;
+		}
 
         @media screen and (max-width: 782px) {
             html #wpadminbar {
