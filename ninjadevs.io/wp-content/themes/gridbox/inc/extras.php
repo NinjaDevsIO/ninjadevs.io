@@ -18,6 +18,7 @@ function gridbox_default_menu() {
 		wp_list_pages( 'title_li=&echo=0' ) .
 		((!is_user_logged_in()) ? '<li class="page_item"><a href="/fadein">Login</a></li>' : '' ) .
 		((!is_user_logged_in()) ? '<li class="page_item"><a href="/join">Join</a></li>' : '' ) .
+		((is_user_logged_in()) ? '<li class="page_item"><a href="/wp-admin/edit.php">Posts</a></li>' : '' ) .
 		((is_user_logged_in()) ? '<li class="page_item"><a href="' . get_bloginfo('url') . '/clan/'. $current_user->user_login . '/profile/' . '">Profile</a></li>' : '' ) .
 		((is_user_logged_in()) ? '<li class="page_item"><a href="' . wp_logout_url() . '">Logout</a></li>' : '' ) .
 		'</ul>';

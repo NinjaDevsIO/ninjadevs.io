@@ -226,7 +226,7 @@ add_action('admin_head', 'change_bar_color');
 
 /* -------------------------------------------------------------------------- */
 
-function ninjadevsio_theme_enqueue_styles2() {
+function ninjadevsio_theme_add_styles() {
     $parent_style = 'parent-style';
 
     wp_enqueue_style($parent_style, get_template_directory_uri().'/style.css');
@@ -239,11 +239,11 @@ function ninjadevsio_theme_enqueue_styles2() {
     );
 }
 
-add_action('wp_enqueue_scripts', 'ninjadevsio_theme_enqueue_styles2', 9999);
+add_action('wp_enqueue_scripts', 'ninjadevsio_theme_add_styles', 9999);
 
 /* -------------------------------------------------------------------------- */
 
-function ninjadevsio_remove_admin_bar_links2() {
+function ninjadevsio_remove_admin_bar_menu_items() {
     global $wp_admin_bar;
 
     //Remove WordPress Logo Menu Items
@@ -255,21 +255,13 @@ function ninjadevsio_remove_admin_bar_links2() {
     if (!is_user_logged_in()) {
         $wp_admin_bar->remove_menu('my-account');
     }
-
-    // $wp_admin_bar->remove_menu('itsec_admin_bar_menu');
-
-    // $wp_admin_bar->remove_menu('view-site');
-    // $wp_admin_bar->remove_menu('dashboard');
-    // $wp_admin_bar->remove_menu('themes');
-    // $wp_admin_bar->remove_menu('widgets');
-    // $wp_admin_bar->remove_menu('menus');
 }
 
-add_action('wp_before_admin_bar_render', 'ninjadevsio_remove_admin_bar_links2', 9999);
+add_action('wp_before_admin_bar_render', 'ninjadevsio_remove_admin_bar_menu_items', 9999);
 
 /* -------------------------------------------------------------------------- */
 
-function ninjadevsio_replace_howdy2($wp_admin_bar) {
+function ninjadevsio_replace_howdy_message($wp_admin_bar) {
     $my_account = $wp_admin_bar->get_node('my-account');
     $newtitle = str_replace('Howdy,', '', $my_account->title);
     $wp_admin_bar->add_node([
@@ -278,124 +270,27 @@ function ninjadevsio_replace_howdy2($wp_admin_bar) {
     ]);
 }
 
-add_filter('admin_bar_menu', 'ninjadevsio_replace_howdy2', 9999);
+add_filter('admin_bar_menu', 'ninjadevsio_replace_howdy_message', 9999);
 
 /* -------------------------------------------------------------------------- */
 
-function ninjadevsio_add_login_link2($meta = false) {
-    global $wp_admin_bar, $blog_id, $current_user;;
+function ninjadevsio_add_login_node($meta = false) {
+    global $wp_admin_bar, $blog_id, $current_user;
 
-    $args = array(
-        'id' => 'bp-home',
-        'title' => 'NinjaDevs',
-        'href' => '/',
-        'meta' => array(
-            'class' => 'bp-home',
-            'title' => 'NinjaDevs'
-        ),
-    );
+	$args = array(
+		'id' => 'bp-home',
+		'title' => 'NinjaDevs',
+		'href' => '/',
+		'meta' => array(
+			'class' => 'bp-home',
+			'title' => 'NinjaDevs'
+		),
+	);
 
-    $wp_admin_bar->add_node($args);
-
-    $args = array(
-        'id' => 'bp-clan',
-        'title' => 'Clan',
-        'href' => '/clan',
-        'meta' => array(
-            'class' => 'bp-clan',
-            'title' => 'Clan',
-        ),
-    );
-
-    $wp_admin_bar->add_node($args);
-
-    $args = array(
-        'id' => 'bp-clans',
-        'title' => 'Clans',
-        'href' => '/clans',
-        'meta' => array(
-            'class' => 'bp-clans',
-            'title' => 'Clans',
-        ),
-    );
-
-    $wp_admin_bar->add_node($args);
-
-    $args = array(
-        'id' => 'bp-wall',
-        'title' => 'Wall',
-        'href' => '/wall',
-        'meta' => array(
-            'class' => 'bp-wall',
-            'title' => 'Wall',
-        ),
-    );
-
-    $wp_admin_bar->add_node($args);
-
-	/*
-    if (!is_user_logged_in()) {
-        $args = array(
-            'id' => 'bp-login',
-            'title' => 'Login',
-            'href' => '/fadein',
-            'meta' => array(
-                'class' => 'bp-login',
-                'title' => 'Login',
-            ),
-        );
-
-        $wp_admin_bar->add_node($args);
-
-        $args = array(
-            'id' => 'bp-join',
-            'title' => 'Join',
-            'href' => '/join',
-            'meta' => array(
-                'class' => 'bp-join',
-                'title' => 'Join',
-            ),
-        );
-
-        $wp_admin_bar->add_node($args);
-    } else {
-        $args = array(
-            'id' => 'bp-profile',
-            'title' => 'Profile',
-            'href' => get_bloginfo('url') . '/clan/'. $current_user->user_login . '/profile/',
-            'meta' => array(
-                'class' => 'bp-profile',
-                'title' => 'Profile',
-            ),
-        );
-
-        $wp_admin_bar->add_node($args);
-
-        $args = array(
-            'id' => 'bp-logout',
-            'title' => 'Logout',
-            'href' => wp_logout_url(),
-            'meta' => array(
-                'class' => 'bp-logout',
-                'title' => 'Logout',
-            ),
-        );
-
-        $wp_admin_bar->add_node($args);
-    }
-	*/
+	$wp_admin_bar->add_node($args);
 }
 
-add_action('admin_bar_menu', 'ninjadevsio_add_login_link2', 99999);
-
-/* -------------------------------------------------------------------------- */
-
-add_filter( 'wp_nav_menu_items', 'my_nav_menu_profile_link2' );
-function my_nav_menu_profile_link2($menu) {
-	$profilelink = '<li><a href="' . bp_loggedin_user_domain( '/' ) . '">' . __('Visit your Awesome Profile') . '</a></li>';
-	$menu = $menu . $profilelink;
-	return $menu;
-}
+add_action('admin_bar_menu', 'ninjadevsio_add_login_node', 99999);
 
 /* -------------------------------------------------------------------------- */
 
@@ -461,6 +356,24 @@ HEREDOC;
 
     echo $template;
 }
+
+/* -------------------------------------------------------------------------- */
+
+function ninjadevsio_remove_dashboard_widgets() {
+	global $wp_meta_boxes;
+
+	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press']);
+	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);
+	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now']);
+	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_plugins']);
+	// unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_drafts']);
+	// unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']);
+	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
+	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
+
+}
+
+add_action('wp_dashboard_setup', 'ninjadevsio_remove_dashboard_widgets' );
 
 /* -------------------------------------------------------------------------- */
 
