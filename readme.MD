@@ -99,7 +99,7 @@ exit
 rsync -chavzP --stats {REMOTE_USERNAME}@ninjadevs.io:/home/ninjadevsio/ninjadevs.io/wp-content/uploads  /Users/{LOCAL_USERNAME}/Sites/ninjadevs.io/ninjadevs.io/wp-content
 ```
 
-## Get your backup own copy
+## Get your own local copy
 
 ```
 rsync -chavzP --stats {REMOTE_USERNAME}@ninjadevs.io:/home/ninjadevsio/BACKUPS  /Users/{LOCAL_USERNAME}/Sites/ninjadevs.io/BACKUPS/remote
