@@ -1,0 +1,85 @@
+.card-post {
+
+  .card-title {
+
+    a {
+
+      &:hover, &:active, &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+
+  P {
+    font-weight: 100;
+  }
+
+  .card-footer {
+    background: $dark-gray-1;
+    color: $white;
+
+    .post-meta {
+
+      .meta-data {
+        padding-bottom: 4px;
+        margin-bottom: 4px;
+        border-bottom: 1px solid rgba(0,0,0,.2);
+        box-shadow: 0px 1px 0px rgba(100,100,100,.2);
+
+        &:last-child {
+          border-bottom: none;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+.post {
+
+  header {
+    text-align: center;
+    margin: 20px 0 40px;
+
+    .entry-title {
+      margin: 0;
+      font-size: 3.5rem;
+      letter-spacing: -0.7rem;
+    }
+
+    .entry-title-decoration {
+      color: $orange-1;
+      margin: 5px 0;
+    }
+
+    .entry-title-author {
+
+      a {
+        color: $dark-gray-1;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .entry-content {
+
+    h2 {
+      margin: 30px 0;
+    }
+
+    p {
+      font-size: 22px;
+      font-weight: 100;
+    }
+  }
+
+  footer {
+
+    .post-meta {
+
+    }
+  }
+}

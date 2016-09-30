@@ -1,4 +1,4 @@
-<header class="navbar navbar-full navbar-dark bg-inverse">
+<header class="navbar navbar-dark bg-inverse navbar-full navbar-fixed-top">
 
   <a class="navbar-brand" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
   <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#primary-navigation">&#9776;</button>

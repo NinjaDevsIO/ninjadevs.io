@@ -53,11 +53,11 @@ add_action('after_setup_theme', __NAMESPACE__ . '\\setup');
 /**
  * Remove admin bar styles
  */
-function remove_admin_bar_styles() {
-    remove_action('wp_head', '_admin_bar_bump_cb');
+function remove_admin_bar() {
+  add_filter('show_admin_bar', '__return_false');
 }
 
-add_action('admin_bar_init', __NAMESPACE__ . '\\remove_admin_bar_styles');
+add_action('wp', __NAMESPACE__ . '\\remove_admin_bar');
 
 /**
  * Register sidebars
@@ -93,6 +93,7 @@ function display_sidebar() {
     // The sidebar will NOT be displayed if ANY of the following return true.
     // @link https://codex.wordpress.org/Conditional_Tags
     is_404(),
+    is_single(),
     is_front_page(),
     is_page_template('template-custom.php'),
   ]);

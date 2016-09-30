@@ -19,30 +19,22 @@ function the_post_meta() {
   $avatar = '<a href="' . $user_posts . '"><img class="img-thumbnail" src="' . $thumbnail . '" /></a>';
 
   $category_list = get_the_category_list();
+  $categories = '';
 
   if ( !empty($category_list) ) {
-    $categories = '<div class="meta-data">' . __('Posted in: ', 'sage') . get_the_category_list(', ') . '</div> <hr />';
+    $categories = '<div class="meta-data">' . __('Posted in: ', 'sage') . get_the_category_list(', ') . '</div>';
   }
 
   $tag_list = get_the_tag_list();
+  $tags = '';
 
   if ( !empty($tag_list) ) {
-    $tags = '<div class="meta-data">' . __('Tags: ', 'sage') . get_the_tag_list('', ', ') . '</div> <hr />';
+    $tags = '<div class="meta-data">' . __('Tags: ', 'sage') . get_the_tag_list('', ', ') . '</div>';
   }
 
   $by = '<a href="' . $user_posts . '">' . get_the_author() . '</a>';
 
-  $date = '<div class="meta-data">' . sprintf(
-      __('On ', 'sage') .
-      ' %1$s', esc_html(get_the_date('M d, Y')) .
-      __(' by ', 'sage') . $by
-    ) . '</div>';
-
-  if (get_comments_number() >= 1) {
-
-    $date = $date . '<hr />';
-
-  }
+  $date = '<div class="meta-data">' . sprintf(__('On', 'sage') . ' %1$s', esc_html(get_the_date('M d, Y')) . ' ' . __('by', 'sage') . ' ' . $by) . '</div>';
 
   $coments = '';
 

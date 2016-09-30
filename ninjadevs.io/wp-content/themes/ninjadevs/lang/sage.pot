@@ -37,6 +37,38 @@ msgstr ""
 msgid "Footer"
 msgstr ""
 
+#: lib/nav.php:231
+msgid "Activity"
+msgstr ""
+
+#: lib/nav.php:232
+msgid "Profile"
+msgstr ""
+
+#: lib/nav.php:233
+msgid "Notifications"
+msgstr ""
+
+#: lib/nav.php:234
+msgid "Friends"
+msgstr ""
+
+#: lib/nav.php:235
+msgid "Groups"
+msgstr ""
+
+#: lib/nav.php:236
+msgid "Settings"
+msgstr ""
+
+#: lib/nav.php:240
+msgid "Logout"
+msgstr ""
+
+#: lib/nav.php:247
+msgid "Login"
+msgstr ""
+
 #: lib/titles.php:13
 msgid "Latest Posts"
 msgstr ""

@@ -10,9 +10,9 @@
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-class wp_bootstrap_navwalker extends Walker_Nav_Menu
-{
-    /**
+class wp_bootstrap_navwalker extends Walker_Nav_Menu {
+
+  /**
      * Starts the list before the elements are added.
      *
      * @see Walker::start_lvl()
@@ -221,3 +221,57 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu
         }
     }
 }
+
+function buddypress_navigation_items($menu) {
+
+  if (is_user_logged_in()) {
+
+    $notifications = bp_notifications_get_unread_notification_count() > 0 ? '<span class="tag tag-warning">' . bp_notifications_get_unread_notification_count() . '</span>' : '';
+
+    $dropDownTitle = '<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#">@' . bp_core_get_username(bp_loggedin_user_id()) . '</a>';
+
+    $profileLink = 'href="' . bp_nav_menu_get_item_url('profile') . '">' . __('Profile', 'sage');
+    $logoutLink =  'href="' . wp_logout_url() . '">' . __('Logout', 'sage') . '</a>';
+
+    $menuItems = '<a class="dropdown-item" href="' . bp_nav_menu_get_item_url('activity') . '">' . __('Activity', 'sage') . '</a>';
+    $menuItems .= '<a class="dropdown-item" ' . $profileLink . '</a>';
+    $menuItems .= '<a class="dropdown-item" href="' . bp_nav_menu_get_item_url('notifications') . '">' . __('Notifications', 'sage') . ' ' . $notifications . '</a>';
+    $menuItems .= '<a class="dropdown-item" href="' . bp_nav_menu_get_item_url('friends') . '">' . __('Friends', 'sage') . '</a>';
+    $menuItems .= '<a class="dropdown-item" href="' . bp_nav_menu_get_item_url('groups') . '">' . __('Groups', 'sage') . '</a>';
+    $menuItems .= '<a class="dropdown-item" href="' . bp_nav_menu_get_item_url('settings') . '">' . __('Settings', 'sage') . '</a>';
+    $menuItems .= '<div class="dropdown-divider hidden-xs-down"></div>';
+    $menuItems .= '<a class="dropdown-item" ' . $logoutLink . '</a>';
+
+
+    $dropDown = <<<HEREDOC
+    <li id="menu-item-buddypress-dropdown" class="pull-md-right nav-item dropdown hidden-md-down">
+      $dropDownTitle
+      <div class="dropdown-menu">
+        $menuItems
+      </div>
+    </li>
+
+    <div class="hidden-md-up">
+      <li class="menu-item menu-item-type-custom nav-item">
+        <a class="nav-link" $profileLink </a>
+      </li>
+      <li class="menu-item menu-item-type-custom nav-item">
+        <a class="nav-link" $logoutLink </a>
+      </li>
+    <div>
+HEREDOC;
+
+    $menu .= $dropDown;
+
+  } else {
+
+    $loginLink = '<li id="menu-item-login-link" class="pull-md-right"><a class="nav-link"  href="' . wp_login_url() . '">' . __('Login', 'sage') . '</a></li>';
+    $menu .= $loginLink;
+
+  }
+
+
+  return $menu;
+
+}
+add_filter('wp_nav_menu_items', 'buddypress_navigation_items');

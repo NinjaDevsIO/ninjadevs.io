@@ -1,3 +1,10 @@
 .navbar {
-  margin-top: 55px;
+
+  .navbar-nav {
+
+    .dropdown-menu {
+      left: auto;
+      right: 0;
+    }
+  }
 }

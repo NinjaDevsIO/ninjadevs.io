@@ -17,14 +17,6 @@ define('NINJADEVSIO_PATHREL', plugins_url() . '/' . basename(NINJADEVSIO_PATHABS
 
 /* -------------------------------------------------------------------------- */
 
-function ninjadevsio_remove_admin_bar() {
-	add_filter( 'show_admin_bar', '__return_false' );
-}
-
-add_action('wp', 'ninjadevsio_remove_admin_bar');
-
-/* -------------------------------------------------------------------------- */
-
 function ninjadevsio_version() {
     return '';
 }
@@ -384,78 +376,5 @@ add_action('admin_bar_menu', 'ninjadevsio_add_login_link2', 99999);
 
 /* -------------------------------------------------------------------------- */
 
-add_filter( 'wp_nav_menu_items', 'my_nav_menu_profile_link2' );
-function my_nav_menu_profile_link2($menu) {
-	$profilelink = '<li><a href="' . bp_loggedin_user_domain( '/' ) . '">' . __('Visit your Awesome Profile') . '</a></li>';
-	$menu = $menu . $profilelink;
-	return $menu;
-}
-
-/* -------------------------------------------------------------------------- */
-
-function ninjadevsio_medium_entry_meta2() {
-    $user_id = get_the_author_meta('ID');
-    $user_posts = get_author_posts_url($user_id);
-
-    $thumbnail = bp_core_fetch_avatar(
-        array(
-            'item_id' => $user_id,
-            'type'    => 'thumb',
-            'html'    => TRUE
-        )
-    );
-
-    $avatar = '<a href="' . $user_posts . '">' . $thumbnail . '</a>';
-
-    $category_list = '';
-    $category_list = get_the_category_list();
-
-    if (!empty($category_list)) {
-        $categories = '<div class="post-user-meta-row">' . __('Posted in: ', 'medium') . get_the_category_list(', ') . '</div>';
-    }
-
-    $tag_list = '';
-    $tag_list = get_the_tag_list();
-
-    if (!empty($tag_list)) {
-        $tags = '<div class="post-user-meta-row">' . __('Tags: ', 'medium') . get_the_tag_list('', ', ') . '</div>';
-    }
-
-    $by = '<a href="' . $user_posts . '">' . get_the_author() . '</a>';
-
-    $date = '<div class="post-user-meta-row">' . sprintf(
-        __('On ', 'medium') .
-        ' %1$s', esc_html(get_the_date('M d, Y')) .
-        __(' by ', 'medium') . $by
-    ) . '</div>';
-
-    $coments = '';
-
-    if (comments_open()) {
-        if (get_comments_number() >= 1) {
-            $coments = '<div class="post-user-meta-row">' . __('Comments: ', 'medium') . ' ' . get_comments_number() . '</div>';
-        }
-    }
-
-$template = <<<HEREDOC
-    <li>
-        <div class="post-user">
-            <div class="post-user-avatar">
-                $avatar
-            </div>
-
-        	<div class="post-user-meta">
-                $categories
-                $tags
-                $date
-        	</div>
-        </div>
-    </li>
-HEREDOC;
-
-    echo $template;
-}
-
-/* -------------------------------------------------------------------------- */
 
 ?>

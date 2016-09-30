@@ -1,6 +1,6 @@
 <article <?php post_class('col-md-4'); ?>>
 
-  <div class="card">
+  <div class="card card-post">
 
     <a href="<?php the_permalink(); ?>">
       <?php if ( has_post_thumbnail() ) { the_post_thumbnail('full', [
@@ -14,7 +14,7 @@
     </div>
 
     <div class="card-footer">
-      <small class="text-muted"><?php get_template_part('templates/entry-meta'); ?></small>
+      <small><?php get_template_part('templates/entry-meta'); ?></small>
     </div>
 
   </div>
