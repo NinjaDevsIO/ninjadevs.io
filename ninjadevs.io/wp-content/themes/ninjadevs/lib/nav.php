@@ -244,14 +244,14 @@ function buddypress_navigation_items($menu) {
 
 
     $dropDown = <<<HEREDOC
-    <li id="menu-item-buddypress-dropdown" class="pull-md-right nav-item dropdown hidden-md-down">
+    <li id="menu-item-buddypress-dropdown" class="pull-xs-right nav-item dropdown hidden-xs-down">
       $dropDownTitle
       <div class="dropdown-menu">
         $menuItems
       </div>
     </li>
 
-    <div class="hidden-md-up">
+    <div class="hidden-sm-up">
       <li class="menu-item menu-item-type-custom nav-item">
         <a class="nav-link" $profileLink </a>
       </li>
@@ -265,8 +265,10 @@ HEREDOC;
 
   } else {
 
-    $menu .= '<li id="menu-item-signup-link" class="nav-item pull-md-right"><a class="nav-link"  href="' . wp_registration_url(). '">' . __('Join', 'sage') . '</a></li>';
-    $menu .= '<li id="menu-item-login-link" class="nav-item pull-md-right"><a class="nav-link"  href="' . wp_login_url() . '">' . __('Login', 'sage') . '</a></li>';
+    $menu .= '<div class="access-links">';
+      $menu .= '<li id="menu-item-signup-link" class="nav-item pull-md-right"><a class="nav-link"  href="' . wp_registration_url(). '">' . __('Join', 'sage') . '</a></li>';
+      $menu .= '<li id="menu-item-login-link" class="nav-item pull-md-right"><a class="nav-link"  href="' . wp_login_url() . '">' . __('Login', 'sage') . '</a></li>';
+    $menu .= '</div>';
 
   }
 

@@ -3,7 +3,7 @@
   <article <?php post_class(); ?>>
 
     <?php if ( has_post_thumbnail() ) { the_post_thumbnail('full', [
-      'class' => 'img-fluid'
+      'class' => 'img-fluid m-x-auto d-block'
     ]); } ?>
 
     <header>
