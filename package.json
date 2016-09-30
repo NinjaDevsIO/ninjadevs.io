@@ -1,0 +1,23 @@
+{
+  "name": "NinjaDevs.io",
+  "version": "8.5.0",
+  "author": "Ninja Devs <info@ninjadevs.io>",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NinjaDevsIO/ninjadevs.io"
+  },
+  "bugs": {
+    "url": "https://github.com/NinjaDevsIO/ninjadevs.io/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 6.5",
+    "npm": ">= 3.7.3"
+  }
+}
