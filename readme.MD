@@ -1,5 +1,7 @@
 ## ninjadevs.io
 
+[![NinjaDevs.IO](https://drive.google.com/uc?export=download&id=0B1pDFiUHXp9WMWZ4cW8yQ1p2bjg)](http://ninjadevs.io/)
+
  - https://docs.docker.com/compose/wordpress
 
  ```
@@ -31,11 +33,11 @@ docker-compose
 ```
 docker-compose ps
 
-Name                        Command               State           Ports          
+Name                        Command               State           Ports
 -----------------------------------------------------------------------------------------
 ninjadevsio_db_1          docker-entrypoint.sh mysqld      Up      0.0.0.0:3306->3306/tcp
-ninjadevsio_wordpress_1   /entrypoint.sh apache2-for ...   Up      0.0.0.0:80->80/tcp     
-phpmyadmin                /run.sh phpmyadmin               Up      0.0.0.0:800->80/tcp    
+ninjadevsio_wordpress_1   /entrypoint.sh apache2-for ...   Up      0.0.0.0:80->80/tcp
+phpmyadmin                /run.sh phpmyadmin               Up      0.0.0.0:800->80/tcp
 ```
 
 ```
