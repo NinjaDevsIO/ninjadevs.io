@@ -2816,6 +2816,10 @@ body.groups #buddypress ul.item-list li div.group-button + div.meta {
     border-radius: 3px;
 }
 
+body.bp-user #content h1.page-title {
+		display:none;
+}
+
 @media only screen and (max-width: 60em) {
 
 	#buddypress ul.item-list li,
