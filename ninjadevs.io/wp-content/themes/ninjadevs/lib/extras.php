@@ -24,6 +24,18 @@ function body_class($classes) {
 }
 add_filter('body_class', __NAMESPACE__ . '\\body_class');
 
+function post_list_class() {
+
+  if (is_category() || is_author() || is_archive()) {
+
+    return 'col-lg-6';
+
+  }
+
+  return 'col-lg-4 col-sm-6';
+
+}
+
 /**
  * Clean up the_excerpt()
  */

@@ -79,9 +79,9 @@
       font-size: 18px;
     }
 
-    .wp-caption {
+    .wp-caption, figure {
 
-      .wp-caption-text {
+      .wp-caption-text, figcaption {
         color: $orange-2;
         font-size: 18px;
         margin-top: 10px;

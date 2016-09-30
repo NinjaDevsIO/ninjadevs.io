@@ -26,6 +26,10 @@ msgid "Read More"
 msgstr ""
 
 #: lib/setup.php:30
+msgid "Search"
+msgstr ""
+
+#: lib/setup.php:30
 msgid "Primary Navigation"
 msgstr ""
 
@@ -67,6 +71,10 @@ msgstr ""
 
 #: lib/nav.php:247
 msgid "Login"
+msgstr ""
+
+#: lib/nav.php:248
+msgid "Join"
 msgstr ""
 
 #: lib/titles.php:13

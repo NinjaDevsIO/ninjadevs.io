@@ -1,0 +1,14 @@
+#footer{
+  margin-top: 30px;
+  background: darken($light-gray, 3%);
+  border-top: 1px solid $white;
+  padding-top: 30px;
+
+  .footer-img {
+    text-align: center;
+
+    img {
+      width: 100%;
+    }
+  }
+}

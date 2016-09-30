@@ -265,8 +265,8 @@ HEREDOC;
 
   } else {
 
-    $loginLink = '<li id="menu-item-login-link" class="pull-md-right"><a class="nav-link"  href="' . wp_login_url() . '">' . __('Login', 'sage') . '</a></li>';
-    $menu .= $loginLink;
+    $menu .= '<li id="menu-item-signup-link" class="nav-item pull-md-right"><a class="nav-link"  href="' . wp_registration_url(). '">' . __('Join', 'sage') . '</a></li>';
+    $menu .= '<li id="menu-item-login-link" class="nav-item pull-md-right"><a class="nav-link"  href="' . wp_login_url() . '">' . __('Login', 'sage') . '</a></li>';
 
   }
 

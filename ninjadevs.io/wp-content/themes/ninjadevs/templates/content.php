@@ -1,4 +1,10 @@
-<article <?php post_class('col-lg-4 col-sm-6'); ?>>
+<?php
+
+use Roots\Sage\Extras;
+
+?>
+
+<article <?php post_class(Extras\post_list_class()); ?>>
 
   <div class="card card-post">
 

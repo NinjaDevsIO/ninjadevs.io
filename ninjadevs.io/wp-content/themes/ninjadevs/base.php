@@ -29,7 +29,7 @@ use Roots\Sage\Wrapper;
           </aside><!-- /.sidebar -->
         <?php endif; ?>
       </div><!-- /.content -->
-    </div><!-- /.wrap -->
+    </div><!-- /.container -->
     <?php
       do_action('get_footer');
       get_template_part('templates/footer');

@@ -1,3 +1,9 @@
+<?php if (is_home()) : ?>
+  <div class="logo">
+    <img src="<?= get_template_directory_uri() ?>/assets/images/logo.png">
+  </div>
+<? endif; ?>
+
 <?php if (!have_posts()) : ?>
   <div class="alert alert-warning">
     <?php _e('Sorry, no results were found.', 'sage'); ?>

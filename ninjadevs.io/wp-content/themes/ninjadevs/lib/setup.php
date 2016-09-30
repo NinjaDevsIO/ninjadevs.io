@@ -56,29 +56,46 @@ add_action('after_setup_theme', __NAMESPACE__ . '\\setup');
 function remove_admin_bar() {
   add_filter('show_admin_bar', '__return_false');
 }
-
 add_action('wp', __NAMESPACE__ . '\\remove_admin_bar');
+
+/**
+ * Replace tag page class
+ * Needed to avoid conflict with bootstrap 4
+ */
+function replace_tag_page_class($classes) {
+
+  if ($classes[1] == 'tag') {
+
+    $classes[1] = 'tag-page';
+
+  }
+
+  return $classes;
+
+}
+add_filter('body_class',  __NAMESPACE__ . '\\replace_tag_page_class');
 
 /**
  * Register sidebars
  */
 function widgets_init() {
+
   register_sidebar([
     'name'          => __('Primary', 'sage'),
     'id'            => 'sidebar-primary',
-    'before_widget' => '<section class="widget %1$s %2$s">',
-    'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>'
+    'before_widget' => '<div class="card-widget %1$s %2$s">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<div class="card-header"><h4>',
+    'after_title'   => '</h4></div>'
   ]);
 
   register_sidebar([
     'name'          => __('Footer', 'sage'),
     'id'            => 'sidebar-footer',
-    'before_widget' => '<section class="widget %1$s %2$s">',
-    'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>'
+    'before_widget' => '<div class="col-md-4 col-sm-6 %1$s %2$s">',
+    'after_widget'  => '</div></div></div>',
+    'before_title'  => '<h4>',
+    'after_title'   => '</h4><div class="card"><div class="card-block">'
   ]);
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
@@ -92,10 +109,12 @@ function display_sidebar() {
   isset($display) || $display = !in_array(true, [
     // The sidebar will NOT be displayed if ANY of the following return true.
     // @link https://codex.wordpress.org/Conditional_Tags
+    is_page('join'),
     is_404(),
     is_single(),
     is_front_page(),
-    is_page_template('template-custom.php'),
+    is_page('manifesto'),
+    //is_page_template('template-custom.php'),
   ]);
 
   return apply_filters('sage/display_sidebar', $display);
