@@ -79,10 +79,28 @@ define('DB_PASSWORD', 'wordpress');
 define('DB_HOST', 'db:3306');
 ```
 
-### Prepare the remote database export for the local import development
+## Manually Backup Remote Site
 
 ```
-perl -p -i -e 's/(www\.)?ninjadevs.io/0.0.0.0/g' data_ninjadevs_io.sql
-perl -p -i -e 's/data.0.0.0.0/0.0.0.0/g' data_ninjadevs_io.sql
-perl -p -i -e 's/{REMOTE_DATABASE_NAME}/wordpress/g' data_ninjadevs_io.sql
+ssh {REMOTE_USERNAME}@ninjadevs.io
+
+rm -fr BACKUPS
+
+mysqldump -u {DB_USERNAME} -p -h {DB_HOST} {DB_NAME} | gzip > BACKUPS/ninjadevsio_`date +%F-%H-%M-%S`.sql.gz
+
+cp -Rp ninjadevs.io BACKUPS/ninjadevs.io_`date +%F-%H-%M-%S`
+
+exit
+```
+
+## Rsync your local uploads folder
+
+```
+rsync -chavzP --stats {REMOTE_USERNAME}@ninjadevs.io:/home/ninjadevsio/ninjadevs.io/wp-content/uploads  /Users/{LOCAL_USERNAME}/Sites/ninjadevs.io/ninjadevs.io/wp-content
+```
+
+## Get your backup own copy
+
+```
+rsync -chavzP --stats {REMOTE_USERNAME}@ninjadevs.io:/home/ninjadevsio/BACKUPS  /Users/{LOCAL_USERNAME}/Sites/ninjadevs.io/BACKUPS/remote
 ```
