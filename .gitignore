@@ -42,3 +42,6 @@ Temporary Items
 
 # IntelliJ Files
 .idea
+
+# WP Theme files
+ninjadevs.io/wp-content/themes/ninjadevs/dist
