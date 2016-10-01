@@ -35,13 +35,7 @@
           '.home .card-post .post-meta'
         ];
 
-        $.each(EQColumnsSelectors, function(index, selector) {
-
-          UTIL.EQcolumns(selector);
-
-          $(window).resize(UTIL.EQcolumns(selector));
-
-        });
+        UTIL.AttachEQColumns(EQColumnsSelectors);
 
       },
       finalize: function() {
@@ -52,6 +46,24 @@
     'about_us': {
       init: function() {
 
+      },
+      finalize: function () {
+        
+      }
+    },
+    'archive': {
+      init: function() {
+
+        var EQColumnsSelectors = [
+          '.category .card-post .card-block',
+          '.category .card-post .post-meta'
+        ];
+
+        UTIL.AttachEQColumns(EQColumnsSelectors);
+
+      },
+      finalize: function () {
+        
       }
     }
   };
@@ -102,6 +114,20 @@
       });
 
       elements.css('min-height', maxHeight + 'px');
+
+    },
+    AttachEQColumns: function(selectors) {
+
+      $.each(selectors, function(index, selector) {
+
+        UTIL.EQcolumns(selector);
+
+        $(window).resize(function () {
+          $(selector).removeAttribute('style');
+          UTIL.EQcolumns(selector);
+        });
+
+      });
 
     }
   };
