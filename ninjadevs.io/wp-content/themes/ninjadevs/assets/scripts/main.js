@@ -123,7 +123,7 @@
         UTIL.EQcolumns(selector);
 
         $(window).resize(function () {
-          $(selector).removeAttribute('style');
+          $(selector).removeAttr('style');
           UTIL.EQcolumns(selector);
         });
 
