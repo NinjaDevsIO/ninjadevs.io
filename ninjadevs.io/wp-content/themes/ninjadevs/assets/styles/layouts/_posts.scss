@@ -81,6 +81,7 @@
 
     .syntaxhighlighter {
       padding: 20px;
+      @include border-radius($radius-1);
     }
 
     .wp-caption, figure {

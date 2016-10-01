@@ -18,6 +18,10 @@ defined('ABSPATH') or die('hmmm!');
 /**
  * Admin specific and public facing site hooks.
  */
+require_once plugin_dir_path( __FILE__ ) . 'includes/gettext.php';
+/**
+ * Admin specific and public facing site hooks.
+ */
 require_once plugin_dir_path( __FILE__ ) . 'includes/common.php';
 /**
  * Adminbar style.
