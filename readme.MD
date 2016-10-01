@@ -2,19 +2,19 @@
 
 [![NinjaDevs.IO](https://drive.google.com/uc?export=download&id=0B1pDFiUHXp9WMWZ4cW8yQ1p2bjg)](http://ninjadevs.io/)
 
- - https://docs.docker.com/compose/wordpress
+ - [WordPress docker-compose Docs](https://docs.docker.com/compose/wordpress)
 
- ```
- docker-compose up -d
- ```
+```
+docker-compose up -d
+```
 
 ## Web Product
 
-  - http://0.0.0.0
+  - [0.0.0.0](http://0.0.0.0)
 
 ## Database Management
 
-  - http://0.0.0.0:800
+  - [0.0.0.0:800](http://0.0.0.0:800)
 
 ```
 Server:     db
@@ -22,9 +22,23 @@ Username:   wordpress
 Password:   wordpress
 ```
 
-## Local Environment
+## Local Theme Development
 
-This actions and credentials are only valid for Our `Local Environment`.
+```
+cd ~/Sites/ninjadevs.io/ninjadevs.io/wp-content/themes/ninjadevs
+
+npm install
+
+bower install
+
+gulp watch
+```
+
+### Browsersync + Gulp
+
+ - [localhost:3000](http://localhost:3000)
+
+## Check Your Local Environment
 
 ```
 docker-compose
@@ -54,7 +68,7 @@ docker ps
 docker exec -it ninjadevsio_db_1 bash
 ```
 
-### Manual Database Backup
+### Manually Backup Our Container DB
 
 ```
 mysql -u wordpress -pwordpress wordpress
@@ -62,45 +76,63 @@ mysql -u wordpress -pwordpress wordpress
 
 ```
 mysqldump -u wordpress -pwordpress wordpress > /var/lib/mysql/wordpress_`date +%Y-%m-%d-%H.%M.%S`.sql
+
+exit
 ```
 
-### On Our local machine
+### Check Your Local Environment Configuration
 
 ```
 ls -la ~/Sites/ninjadevs.io/mysql
 ```
 
-## atom wp-config.php
+## Local WordPress Configuration
+
+Set the right ```wp-config.php``` for your local environment:
 
 ```
-define('DB_NAME', 'wordpress');
-define('DB_USER', 'wordpress');
-define('DB_PASSWORD', 'wordpress');
-define('DB_HOST', 'db:3306');
+cp ~/Sites/ninjadevs.io/ninjadevs.io/wp-config-development.php ~/Sites/ninjadevs.io/ninjadevs.io/wp-config.php
+
+atom ~/Sites/ninjadevs.io/ninjadevs.io/wp-config.php
 ```
 
-## Manually Backup Remote Site
+## Manually Backup Our Remote Site
 
 ```
 ssh {REMOTE_USERNAME}@ninjadevs.io
 
 rm -fr BACKUPS
+mkdir BACKUPS
 
-mysqldump -u {DB_USERNAME} -p -h {DB_HOST} {DB_NAME} | gzip > BACKUPS/ninjadevsio_`date +%F-%H-%M-%S`.sql.gz
+mysqldump -u {REMOTE_USERNAME} -p -h {REMOTE_DB_HOST} {REMOTE_DB_NAME} | gzip > /home/ninjadevsio/BACKUPS/ninjadevsio_`date +%F-%H-%M-%S`.sql.gz
 
 cp -Rp ninjadevs.io BACKUPS/ninjadevs.io_`date +%F-%H-%M-%S`
 
 exit
 ```
 
-## Rsync your local uploads folder
+# Rsync wp-content
+
+ - [explainshell.com: rsync -chavzP --stats](http://www.explainshell.com/explain?cmd=rsync+-chavzP+--stats)
 
 ```
-rsync -chavzP --stats {REMOTE_USERNAME}@ninjadevs.io:/home/ninjadevsio/ninjadevs.io/wp-content/uploads  /Users/{LOCAL_USERNAME}/Sites/ninjadevs.io/ninjadevs.io/wp-content
+rsync -chavzP --stats \
+{REMOTE_USERNAME}@ninjadevs.io:/home/ninjadevsio/ninjadevs.io/wp-content/uploads  \
+/Users/{LOCAL_USERNAME}/Sites/ninjadevs.io/ninjadevs.io/wp-content
 ```
 
-## Get your own local copy
+# Uploads Folder
 
 ```
-rsync -chavzP --stats {REMOTE_USERNAME}@ninjadevs.io:/home/ninjadevsio/BACKUPS  /Users/{LOCAL_USERNAME}/Sites/ninjadevs.io/BACKUPS/remote
+rsync -chavzP --stats \
+{REMOTE_USERNAME}@ninjadevs.io:/home/ninjadevsio/ninjadevs.io/wp-content \
+/Users/{LOCAL_USERNAME}/Sites/ninjadevs.io/ninjadevs.io
+```
+
+# BACKUPS Folder
+
+```
+rsync -chavzP --stats \
+{REMOTE_USERNAME}@ninjadevs.io:/home/ninjadevsio/BACKUPS \
+/Users/{LOCAL_USERNAME}/Sites/ninjadevs.io/ninjadevs.io
 ```
