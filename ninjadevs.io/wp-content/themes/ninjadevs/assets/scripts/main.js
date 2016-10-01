@@ -18,7 +18,7 @@
     // All pages
     'common': {
       init: function() {
-        // JavaScript to be fired on all pages
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
@@ -27,7 +27,20 @@
     // Home page
     'home': {
       init: function() {
-        // JavaScript to be fired on the home page
+
+        var EQColumnsSelectors = [
+          '.home .card-post .card-block',
+          '.home .card-post .post-meta'
+        ];
+
+        $.each(EQColumnsSelectors, function(index, selector) {
+
+          UTIL.EQcolumns(selector);
+
+          $(window).resize(UTIL.EQcolumns(selector));
+
+        });
+
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
@@ -68,6 +81,26 @@
 
       // Fire common finalize JS
       UTIL.fire('common', 'finalize');
+    },
+    EQcolumns: function(selector) {
+
+      var maxHeight = 0,
+        elements = $(selector);
+
+      $.each(elements, function(index, el) {
+
+        var curHeight = $(el).outerHeight();
+
+        if (curHeight > maxHeight) {
+
+          maxHeight = curHeight;
+
+        }
+
+      });
+
+      elements.css('min-height', maxHeight + 'px');
+
     }
   };
 
