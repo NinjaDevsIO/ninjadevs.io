@@ -1,3 +1,17 @@
+textarea,
+input,
+.generic-button a {
+  @include border-radius($radius-1);
+}
+
+#buddypress .activity .activity-meta a.fav {
+  color:  $dark-gray-1;
+}
+
+#buddypress .activity .activity-meta a.unfav {
+  color:  $orange-1;
+}
+
 // Search form
 .search-form {
   @extend .form-inline;
