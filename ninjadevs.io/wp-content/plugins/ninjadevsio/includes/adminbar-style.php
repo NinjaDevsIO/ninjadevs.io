@@ -15,7 +15,7 @@ function change_wpadminbar_style() {
         }
 
         #wpadminbar {
-            background: #000 !important;
+            background: #373a3c !important;
             height: 55px;
         }
 
@@ -34,7 +34,7 @@ function change_wpadminbar_style() {
         #wpadminbar:not(.mobile) .ab-top-menu>li:hover>.ab-item,
         #wpadminbar:not(.mobile) .ab-top-menu>li>.ab-item:focus {
             border-radius: 4px;
-            background: #0070bb;
+            background: transparent;
             color: #fff;
         }
 
@@ -49,7 +49,7 @@ function change_wpadminbar_style() {
         	color: #fff;
         	-webkit-box-shadow: none;
         	box-shadow: none;
-        	background: #000;
+        	background: #373a3c;
         }
 
         #wpadminbar .ab-submenu .ab-item {
@@ -58,7 +58,7 @@ function change_wpadminbar_style() {
 
         #wpadminbar .quicklinks .menupop ul.ab-sub-secondary,
         #wpadminbar .quicklinks .menupop ul.ab-sub-secondary .ab-submenu {
-            background: #000;
+            background: #373a3c;
             color: #fff;
         }
 
@@ -69,7 +69,7 @@ function change_wpadminbar_style() {
 		#adminmenu,
 		#adminmenu .wp-submenu,
 		#adminmenuback, #adminmenuwrap {
-		    background-color: #000;
+		    background-color: #373a3c;
 		}
 
         @media screen and (max-width: 782px) {
