@@ -108,6 +108,8 @@ mysqldump -u {REMOTE_USERNAME} -p -h {REMOTE_DB_HOST} {REMOTE_DB_NAME} | gzip > 
 
 cp -Rp ninjadevs.io BACKUPS/ninjadevs.io_`date +%F-%H-%M-%S`
 
+rm -fr BACKUPS/ninjadevs.io_*/wp-content/themes/ninjadevs/node_modules
+
 exit
 ```
 
@@ -135,4 +137,11 @@ rsync -chavzP --stats \
 rsync -chavzP --stats \
 {REMOTE_USERNAME}@ninjadevs.io:/home/ninjadevsio/BACKUPS \
 /Users/{LOCAL_USERNAME}/Sites/ninjadevs.io/ninjadevs.io
+```
+
+# Avoid local login conflicts
+
+```
+rm -fr ninjadevs.io/wp-content/plugins/better-wp-security
+rm -fr ninjadevs.io/wp-content/plugins/wp-recaptcha-integration
 ```
