@@ -2,27 +2,27 @@
 
 final class ITSEC_Ban_Users_Settings_Page extends ITSEC_Module_Settings_Page {
 	private $script_version = 1;
-	
-	
+
+
 	public function __construct() {
 		$this->id = 'ban-users';
 		$this->title = __( 'Banned Users', 'better-wp-security' );
 		$this->description = __( 'Block specific IP addresses and user agents from accessing the site.', 'better-wp-security' );
 		$this->type = 'recommended';
-		
+
 		parent::__construct();
 	}
-	
+
 	protected function render_description( $form ) {
-		
+
 ?>
 	<p><?php _e( 'This feature allows you to completely ban hosts and user agents from your site without having to manage any configuration of your server. Any IP addresses or user agents found in the lists below will not be allowed any access to your site.', 'better-wp-security' ); ?></p>
 <?php
-		
+
 	}
-	
+
 	protected function render_settings( $form ) {
-		
+
 ?>
 	<table class="form-table itsec-settings-section">
 		<tr>
@@ -30,7 +30,7 @@ final class ITSEC_Ban_Users_Settings_Page extends ITSEC_Module_Settings_Page {
 			<td>
 				<?php $form->add_checkbox( 'default' ); ?>
 				<label for="itsec-ban-users-default"><?php _e( 'Enable HackRepair.com\'s blacklist feature', 'better-wp-security' ); ?></label>
-				<p class="description"><?php printf( __( 'As a getting-started point you can include the excellent blacklist developed by Jim Walker of <a href="%s" target="_blank">HackRepair.com</a>.', 'better-wp-security' ), 'http://hackrepair.com/blog/how-to-block-bots-from-seeing-your-website-bad-bots-and-drive-by-hacks-explained' ); ?></p>
+				<p class="description"><?php printf( __( 'As a getting-started point you can include the blacklist developed by Jim Walker of <a href="%s" target="_blank">HackRepair.com</a>.', 'better-wp-security' ), 'http://hackrepair.com/blog/how-to-block-bots-from-seeing-your-website-bad-bots-and-drive-by-hacks-explained' ); ?></p>
 			</td>
 		</tr>
 		<tr>
@@ -72,7 +72,7 @@ final class ITSEC_Ban_Users_Settings_Page extends ITSEC_Module_Settings_Page {
 		</tr>
 	</table>
 <?php
-		
+
 	}
 }
 

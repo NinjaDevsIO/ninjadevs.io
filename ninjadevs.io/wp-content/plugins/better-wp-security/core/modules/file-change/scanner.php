@@ -65,7 +65,7 @@ final class ITSEC_File_Change_Scanner {
 		if ( ! self::$instance ) {
 			self::$instance = new self;
 		}
-		
+
 		return self::$instance->execute_file_check( $scheduled_call, $return_data );
 	}
 
@@ -213,6 +213,12 @@ final class ITSEC_File_Change_Scanner {
 					'changed' => $files_changed,
 				);
 
+				$this->settings['latest_changes'] = array(
+					'added' => count( $files_added ),
+					'removed' => count( $files_removed ),
+					'changed' => count( $files_changed ),
+				);
+
 				update_site_option( $db_field, $current_files );
 
 				//Cleanup variables when we're done with them
@@ -306,7 +312,7 @@ final class ITSEC_File_Change_Scanner {
 			return -1; //An error occured
 
 		}
-		
+
 		return -1;
 
 	}
@@ -601,17 +607,8 @@ final class ITSEC_File_Change_Scanner {
 
 			$changed = $email_details[0] + $email_details[1] + $email_details[2];
 
-			if ( 0 < $changed ) {
-
-				$message = sprintf(
-					'<strong>%s:</strong> %s %s.',
-					__( 'File changes detected', 'better-wp-security' ),
-					$itsec_globals['plugin_name'],
-					__( 'detected file changes on your system', 'better-wp-security' )
-				);
-
-				$itsec_notify->notify( $message );
-
+			if ( $changed > 0 ) {
+				$itsec_notify->register_file_change();
 			}
 
 		}

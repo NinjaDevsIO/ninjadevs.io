@@ -429,3 +429,15 @@
 	Security Fix: Updated log output to prevent specific kinds of logged requests from displaying without sanitization. Thanks to Slavco Mihajloski for contacting us about this issue.
 	Bug Fix: Corrected a settings description typo in Global Settings.
 	Bug Fix: Fixed bug that could result in issues authenticating over XML-RPC when the WordPress Tweaks > Multiple Authentication Attempts per XML-RPC Request setting is set to "Block".
+2.5.7 - 2016-10-10 - Chris Jean
+	Bug Fix: Removed the "Wget" user agent from the Hack Repair blacklist as it can block wp-cron jobs on some hosts.
+	Enhancement: Added new Daily Digest email design.
+2.5.8 - 2016-10-10 - Chris Jean
+	Bug Fix: Fixed error "PHP message: PHP Fatal error:  'continue' not in the 'loop' or 'switch' context".
+2.5.9 - 2016-10-13 - Chris Jean
+	Bug Fix: Fixed issue that reported invalid counts for host and user lockouts in the daily digest email.
+	Bug Fix: Fixed issue that caused the daily digest email to be sent every day, even if no lockouts occurred and no file changes were found.
+2.5.10 - 2016-10-13 - Chris Jean
+	Bug Fix: Fixed issue that could prevent saving of File Change settings, resulting in an error messages of "A validation function for file-change received data that did not have the required entry for latest_changes."
+2.5.11 - 2016-10-14 - Chris Jean
+	Bug Fix: Fixed iThemes Security Pro logo appearing in daily digest emails for iThemes Security users.

@@ -119,7 +119,6 @@ if ($http_user_agent ~* "^Website Quester"){return 403;}
 if ($http_user_agent ~* "^WebStripper"){return 403;}
 if ($http_user_agent ~* "^WebWhacker"){return 403;}
 if ($http_user_agent ~* "^WebZIP"){return 403;}
-if ($http_user_agent ~* "^Wget"){return 403;}
 if ($http_user_agent ~* "^Widow"){return 403;}
 if ($http_user_agent ~* "^WPScan"){return 403;}
 if ($http_user_agent ~* "^WWW\-Mechanize"){return 403;}

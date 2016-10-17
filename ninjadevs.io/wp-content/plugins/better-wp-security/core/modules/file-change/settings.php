@@ -4,13 +4,13 @@ final class ITSEC_File_Change_Settings extends ITSEC_Settings {
 	public function get_id() {
 		return 'file-change';
 	}
-	
+
 	public function get_defaults() {
 		return array(
-			'split'        => false,
-			'method'       => 'exclude',
-			'file_list'    => array(),
-			'types'        => array(
+			'split'          => false,
+			'method'         => 'exclude',
+			'file_list'      => array(),
+			'types'          => array(
 				'.jpg',
 				'.jpeg',
 				'.png',
@@ -18,11 +18,12 @@ final class ITSEC_File_Change_Settings extends ITSEC_Settings {
 				'.mo',
 				'.po'
 			),
-			'email'        => true,
-			'notify_admin' => true,
-			'last_run'     => 0,
-			'last_chunk'   => false,
-			'show_warning' => false,
+			'email'          => true,
+			'notify_admin'   => true,
+			'last_run'       => 0,
+			'last_chunk'     => false,
+			'show_warning'   => false,
+			'latest_changes' => array(),
 		);
 	}
 }

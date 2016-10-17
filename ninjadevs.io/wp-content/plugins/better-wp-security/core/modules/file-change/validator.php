@@ -4,10 +4,10 @@ class ITSEC_File_Change_Validator extends ITSEC_Validator {
 	public function get_id() {
 		return 'file-change';
 	}
-	
+
 	protected function sanitize_settings() {
 		$previous_settings = ITSEC_Modules::get_settings( $this->get_id() );
-		
+
 		if ( ! isset( $this->settings['last_run'] ) ) {
 			$this->settings['last_run'] = $previous_settings['last_run'];
 		}
@@ -18,6 +18,7 @@ class ITSEC_File_Change_Validator extends ITSEC_Validator {
 			$this->settings['show_warning'] = $previous_settings['show_warning'];
 		}
 
+		$this->set_previous_if_empty( array( 'latest_changes' ) );
 		$this->vars_to_skip_validate_matching_types[] = 'last_chunk';
 
 		$this->sanitize_setting( 'bool', 'split', __( 'Split File Scanning', 'better-wp-security' ) );
@@ -27,13 +28,13 @@ class ITSEC_File_Change_Validator extends ITSEC_Validator {
 		$this->sanitize_setting( 'bool', 'email', __( 'Email File Change Notifications', 'better-wp-security' ) );
 		$this->sanitize_setting( 'bool', 'notify_admin', __( 'Display File Change Admin Warning', 'better-wp-security' ) );
 		$this->sanitize_setting( 'positive-int', 'last_run', __( 'Last Run', 'better-wp-security' ), false );
-		
+
 		$this->settings = apply_filters( 'itsec-file-change-sanitize-settings', $this->settings );
 	}
-	
+
 	protected function validate_settings() {
 		$current_time = ITSEC_Core::get_current_time();
-		
+
 		if ( defined( 'ITSEC_DOING_FILE_CHECK' ) && true === ITSEC_DOING_FILE_CHECK ) {
 			$this->settings['last_run'] = $current_time;
 		} else {
@@ -42,7 +43,7 @@ class ITSEC_File_Change_Validator extends ITSEC_Validator {
 			} else {
 				$interval = 86340;
 			}
-			
+
 			if ( $this->settings['last_run'] <= $current_time - $interval ) {
 				$this->settings['last_run'] = $current_time - $interval + 120;
 			}
